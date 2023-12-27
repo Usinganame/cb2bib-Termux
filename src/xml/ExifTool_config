@@ -1,0 +1,46 @@
+%Image::ExifTool::UserDefined::BibTeX = (
+    GROUPS        => { 0 => 'XMP', 1 => 'XMP-bibtex', 2 => 'Reference' },
+    NAMESPACE     => { 'bibtex' => 'https://www.molspaces.com/cb2bib' },
+    WRITABLE      => 'string',
+    type => { },
+    abstract => { },
+    address => { },
+    annote => { },
+    author => { },
+    booktitle => { },
+    chapter => { },
+    doi => { },
+    edition => { },
+    editor => { },
+    eprint => { },
+    file => { },
+    institution => { },
+    isbn => { },
+    issn => { },
+    journal => { },
+    keywords => { },
+    month => { },
+    note => { },
+    number => { },
+    organization => { },
+    pages => { },
+    publisher => { },
+    school => { },
+    series => { },
+    title => { },
+    url => { },
+    volume => { },
+    year => { },
+);
+
+%Image::ExifTool::UserDefined = (
+    'Image::ExifTool::XMP::Main' => {
+        bibtex => {
+            SubDirectory => {
+                TagTable => 'Image::ExifTool::UserDefined::BibTeX',
+            },
+        },
+    },
+);
+
+1;
