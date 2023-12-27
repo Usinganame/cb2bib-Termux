@@ -1,0 +1,654 @@
+2021-02-12   RELEASE OF VERSION 2.0.1
+2021-02-10   Updated documentation
+2021-02-10   Fixed missing network library in Windows package
+2021-02-09   Added Pandoc markdown cite command (Thanks to M. Young)
+2021-02-08   Added title_first_word cite ID placeholder (Thanks to J. Kalliauer)
+2021-02-08   Set LZ4 compressor as default
+2020-05-15   Added preliminary document ranking
+2020-05-07   Improved title capitalization
+2020-05-07   Optimized BibTeX parsing
+2020-04-12   Added stemmed context search
+2019-12-23   Optimized PDF text cache
+2019-12-23   Added LZSSE4 compressor
+2019-11-26   Added LZ4 compressor
+2019-12-16   Optimized TeX to Unicode conversion
+2019-11-24   Addressed Qt5.13 deprecated warnings and changes
+2019-11-23   Removed obsolete Qt5.13 calls
+2019-11-22   Optimized collection indexing
+2019-11-19   Removed memory peak in collection indexing
+2019-11-17   Refactored authorString
+2019-11-02   Added optimized text matcher for SIMD SSE2 and AVX2 CPUs
+2019-03-27   Fixed regression on Update Documents Metadata
+2019-02-10   RELEASE OF VERSION 2.0.0
+2019-02-08   Updated Windows installer
+2019-02-07   Cleanup cppcheck and clazy checks
+2018-09-19   Updated abbreviations.txt file
+2018-09-19   Fixed journal conversion for LaTeX escaped characters
+2018-09-07   RELEASE OF VERSION 1.9.9
+2018-09-06   Fixed gcc compiler warning (Thanks to F. Rusconi)
+2018-09-05   Updated abbreviations.txt file
+2018-09-05   Added alternate abbreviation and full journal processing
+2018-08-27   Set to remove conflicting braces on extern author strings
+2018-08-27   Updated netqinf.txt file, set reliable queries only
+2018-08-27   Added merge metadata actions to netqinf syntax
+2018-08-27   Added parsers for arXiv and Crossref
+2018-08-23   Fixed break of query chain on single network error
+2018-08-07   RELEASE OF VERSION 1.9.8
+2018-08-07   Updated bookmark and abbreviation files
+2018-08-05   Ported deprecated jsMath newcommand macros to MathJax
+2018-08-05   Fixed sub and sup scripts conflicting with MathJax
+2018-07-27   Added PDF user manual
+2018-07-27   Updated documentation and improved navigation
+2017-06-28   RELEASE OF VERSION 1.9.7
+2017-06-27   Set MathJax default local for increased security (Thanks to F. Rusconi)
+2017-06-27   Fixed broken Cross Ref link
+2017-01-14   Added missing Qt dll to Windows installer (Thanks to M. Ivanovski)
+2017-01-07   RELEASE OF VERSION 1.9.6
+2017-01-07   Fixed regression when invoking internal editor for Annote
+2017-01-07   Fixed MacOSX build (Thanks to G. V. Wyngaerd)
+2016-07-16   RELEASE OF VERSION 1.9.5
+2016-07-16   Fixed main panel tab order regression
+2016-05-20   RELEASE OF VERSION 1.9.4
+2016-05-18   Set internal editor for Annote
+2016-05-18   Updated jsMath interface to MathJax
+2016-05-18   Deprecated clipboard poll, removed Qt5X11Extras dependency
+2016-05-18   Removed unused What's This button from dialogues
+2016-05-15   Set QRegularExpression/PCRE to in-document searches
+2016-05-15   Fixed c2bReferenceList QUrl encoding
+2016-05-15   Fixed output in c2bconsole
+2016-05-15   Updated build scripts for Windows
+2016-05-14   Included upcoming QtWebEngine together with QtWebKit
+2016-05-13   RELEASE OF VERSION 1.9.3
+2016-05-12   Updated and cleaned building scripts
+2015-08-10   RELEASE OF VERSION 1.9.2
+2015-08-09   Code cleanup through cppcheck
+2015-08-09   Removed old modified QRegExp
+2015-08-08   Updated indexing
+2015-07-24   RELEASE OF VERSION 1.9.1
+2015-07-24   Set QRegularExpression/PCRE for full search indexing
+2015-07-20   Fixed Qt 5.5.0 compilation
+2015-07-18   RELEASE OF VERSION 1.9.0
+2015-07-18   Ported to Qt5
+2014-12-20   RELEASE OF VERSION 1.5.0
+2014-12-18   Fixed document indexing when conversion to text fails
+2014-12-17   Improved keyword sentence extraction
+2014-12-17   Added modified XPDF code to separate superscripts
+2014-12-10   Improved PDF to text postprocessing, code checking and de-hyphenation
+2014-08-18   Fix missing keywords for two c2bscripts/*.desktop files (Thanks to F. Rusconi)
+2012-12-23   Updated netqinf.txt for PubMed (Thanks to S. Kreisel)
+2012-11-05   RELEASE OF VERSION 1.4.9
+2012-11-04   Minor improvements in keyword extraction
+2012-11-03   Code cleanup and micro optimizations through cppcheck
+2012-10-23   Assure tmp path is writable when operating remotely (Thanks to A. Norton)
+2012-08-02   Disable Open button when Postprocess does not produce a file (Thanks to J. Welford)
+2012-05-15   RELEASE OF VERSION 1.4.8
+2012-05-13   Fixed gcc 4.7 compilation, Debian bug 667129 (Thanks to M. Klose and F. Rusconi)
+2012-02-17   Added a warning whenever external document to text conversion fails while indexing
+2012-01-15   Minor improvements in keyword extraction
+2011-12-20   RELEASE OF VERSION 1.4.7
+2011-12-17   Added keyword excerpt view
+2011-12-13   Optimized keyword extraction citer cleanup
+2011-12-05   Propagated --conf flags to child processes
+2011-11-18   Improved citer navigation
+2011-09-18   Added document similarity view
+2011-09-18   Added POS tagger and keyword patterns
+2011-08-14   Added automatic keyword extraction from documents
+2011-08-03   RELEASE OF VERSION 1.4.6
+2011-08-02   Set minor improvements in volume, number, page recognition
+2011-08-01   Made shortcuts customizable
+2011-06-29   Added XCode ./qmake/cb2bib-osx.pro file (Thanks to J. Ralls)
+2011-06-29   Updated netqinf.txt for PubMed
+2011-03-21   RELEASE OF VERSION 1.4.5
+2011-03-21   Fixed build error, set explicit X11 (Thanks to F. Rusconi, J. Corneli, and A. Wintcher)
+2011-01-23   RELEASE OF VERSION 1.4.4
+2011-01-23   Consider import multi keywords BibTeX entries (Thanks to C. Dri)
+2010-12-17   Added Cyrillic to ASCI transliteration (Thanks to V. Koval)
+2010-12-06   Updated bookmark's file netqinf.txt
+2010-11-24   Documented comma separated value CSV to BibTeX procedure (Thanks to G. Ranger)
+2010-11-05   Fixed three bashisms in file c2btools/bib2pdf (Thanks to F. Rusconi)
+2010-10-19   Set executable inside cmake build tree (Thanks to F. Rusconi)
+2010-10-11   RELEASE OF VERSION 1.4.3
+2010-10-11   Fixed two-letter initial, 'Yu. Last' author parsing
+2010-10-10   Fixed trimming leading spaces in Annote verbatim sections
+2010-10-10   Removed hard-coded monospace font in Annote's CSS file
+2010-10-10   Fixed opened files seen as modified in when using Qt 4.7.0
+2010-09-11   RELEASE OF VERSION 1.4.2
+2010-08-31   Added initial cmake configure/build/install
+2010-08-31   Set fixes and testing cmake configure/build on MacOSX (Thanks to D. Swain)
+2010-08-30   Set calling external tools path independent on MacOSX (Thanks to C. Szepesvari)
+2010-08-22   Minor code cleanup
+2010-08-21   Fixed wrong author parsing if ForeName is missing in XML PubMed (Thanks to F. Rusconi)
+2010-05-24   RELEASE OF VERSION 1.4.1
+2010-05-23   Improved journal recognition
+2010-05-22   Updated bookmark's file netqinf.txt
+2010-05-22   Skip saving void documents when "Download document if available" is checked
+2010-05-22   Check for document existence and mimetype prior to downloading
+2010-05-22   Refactored network classes
+2010-04-24   RELEASE OF VERSION 1.4.0
+2010-04-23   Set c2bCiter to remember display format
+2010-04-22   Set clipboard connected mode default in c2bCiter
+2010-04-22   Remember last current citation in c2bCiter
+2010-04-22   Updated several icons in editor
+2010-03-21   Set workaround for cleared line edits showing cursor (QTBUG-7866)
+2010-03-21   Postprocess DOI to clear URL formatting
+2010-03-21   Added chronological view in c2bCiter
+2010-02-22   RELEASE OF VERSION 1.3.7
+2010-02-21   Validate author in PubMed XML parser
+2010-02-21   Avoid stopping network queries when one fails
+2010-02-21   Set minor improvements in year, volume, page recognition
+2010-02-21   Updated style sheet for reference browsing
+2010-02-20   Fallback title to booktitle to file name in views
+2010-02-20   Set --sloppy to accept all files
+2010-02-20   Consider shortcut to write/update source document's metadata (Thanks to S. Kreisel)
+2010-02-20   Consider c2bCiter's filter to be connected to clipboard (Thanks to H. Seifzadeh)
+2010-02-20   Fixed Medline parsing in some cases with uppercased hyphenated words (Thanks to F. Rusconi)
+2010-01-05   RELEASE OF VERSION 1.3.6
+2010-01-04   Added 'Fore IJ Last' formatted author recognition
+2010-01-02   Minor improvements in journal recognition
+2009-12-28   Minor improvements in PubMed XML parser for journal pages and year
+2009-12-26   Fixed two cases of author capitalization which conflicted with suffixes and two-letter initials
+2009-12-21   Minor improvements in abstract and keywords recognition
+2009-12-15   Adapted configure script to Gentoo build descriptions (Thanks to H. Mildenberger and A. K. Huettel)
+2009-10-26   RELEASE OF VERSION 1.3.5
+2009-10-25   Fixed a regression in single word approximate strings not working for documents
+2009-10-21   Fixed wrong automatic extraction for DOIs followed by commas (Thanks to X. Helluy)
+2009-10-21   Set reference field shortcuts in manual extraction
+2009-10-21   Consider setting manual extraction selection keyboard aware (Thanks to H. Seifzadeh)
+2009-10-15   Consider fallback journal to booktitle for inproceedings in views (Thanks to H. Seifzadeh)
+2009-10-13   RELEASE OF VERSION 1.3.4
+2009-10-12   Skip copy/move document on save if BibTeX file is not writable
+2009-10-11   Updated bookmark's file netqinf.txt (Thanks to H. Seifzadeh)
+2009-10-09   Added minor improvements in author, pages and volume recognition
+2009-10-09   Included citeid in check repeated
+2009-09-19   Fixed a typo, --tempdir must be --tmpdir, in bib2pdf (Thanks to F. Rusconi)
+2009-09-11   Protected all shell variables against spaces in configure (Thanks to F. Rusconi)
+2009-09-10   RELEASE OF VERSION 1.3.3
+2009-09-06   Added 'fix string: context' search type
+2009-08-26   Optimized search in files, and implemented fast matching for approximate strings
+2009-08-26   Fixed compiler -Werror=format-security errors in qDebug calls
+2009-08-18   Added --sloppy switch for --doc2bib and --txt2bib actions
+2009-08-11   Fixed export entries from search browser
+2009-08-06   Added relevant Prism metadata recognition
+2009-08-03   Fixed possible separator duplication in keywords
+2009-08-03   Wrote a more clarifying documentation for automatic extractions
+2009-08-01   Fixed a regression not converting '2nd' and '3rd' PubMed author suffixes
+2009-07-27   RELEASE OF VERSION 1.3.2
+2009-07-27   Do not ask if document should be saved when closing search results browser
+2009-07-27   Added citeid document ID placeholder that keeps both IDs syncronized
+2009-07-26   Set not to expand pathless filenames in USB mode permitting to use host PATH tools
+2009-07-26   Improved check repeated and added check repeated on save
+2009-07-25   Consider title ID placeholder and set cite and document separate IDs (Thanks to O. Sluciak)
+2009-07-23   Fixed wrong file name in missing converter message
+2009-07-23   Updated build scrips to not require external tools dependence
+2009-07-23   Set calling external tools path independent
+2009-07-10   Added author_all_abbreviated cite ID placeholder (Thanks to D. Huang)
+2009-07-05   Improved configure and tool scripts (Thanks to F. Rusconi and L. Mamane)
+2009-06-29   RELEASE OF VERSION 1.3.1
+2009-06-27   Added Check Repeated functionality for current reference
+2009-06-27   Fixed parser not processing last field in inverted comma style BibTeX
+2009-06-27   Set netqinf.txt to use internal XML parser for PubMed
+2009-06-27   Fixed packaging, double copying scripts and initial external tool setting
+2009-06-01   Fixed c2bciter script not passing all arguments (Thanks to F. Rusconi)
+2009-06-01   RELEASE OF VERSION 1.3.0
+2009-05-30   Updated configure script (Thanks to F. Rusconi)
+2009-05-23   Added module c2bCiter and command line action --citer
+2009-05-23   Set cb2Bib not to process clipboard updates if main panel is closed
+2009-05-23   Set standard shortcuts to conform to user's desktop
+2009-05-23   Improved to ASCII conversion and collation algorithm
+2009-05-20   Added example query using HTML to text conversion in netqinf.txt
+2009-05-20   Added pre-process script med2bib (Thanks to F. Rusconi)
+2009-05-20   Pre and post process scripts cleanup (Thanks to F. Rusconi)
+2009-05-17   Fixed wrong display of proper names for BibTeX files written in reverse order
+2009-05-17   Improved abstract and keywords heuristics (Thanks to  J. P. Eckmann)
+2009-05-17   Cleanup command line messages, fixed wrong mention on temporary files deletion
+2009-05-17   Convenience script dl_cb2bib renamed to c2bimport
+2009-05-10   Improved document to text conversions, removal of non-textual symbols
+2009-05-10   Fixed set initial references.bib to user's home directory
+2009-05-10   Made temporary file names dependent on cb2Bib session
+2009-05-10   Fixed a regression on Windows uninstaller not deleting install directories
+2009-05-10   Added convenience shell wrapper c2bconsole on Windows
+2009-05-07   RELEASE OF VERSION 1.2.3
+2009-05-07   Fixed a regression when setting unsupervised processing
+2009-05-07   Renamed settings key for metadata writer
+2009-05-06   Improved journal name recognition
+2009-05-06   Added conversion htm2txt_query and htm2txt_referenceurl actions in netqinf.txt
+2009-05-04   Added --configure command line functionality
+2009-05-04   Added --txt2bib and --doc2bib command line functionality
+2009-04-05   RELEASE OF VERSION 1.2.2
+2009-04-05   Set reference list sorting case and diacritic insensitive
+2009-04-05   Improved author string parsing
+2009-03-31   Consider parsing reverse order and comma separated author strings (Thanks to D. Comtois)
+2009-03-27   Added network access through a proxy host (Thanks to T. Deneux)
+2009-03-25   RELEASE OF VERSION 1.2.1
+2009-03-25   Improved the pattern/regular expression editor
+2009-03-24   Fixed a potential crash if expected and actual captures in user's patterns mismatch
+2009-03-15   Improved/optimized journal names lookup
+2009-03-07   Added line numbers in embedded editor
+2009-03-03   RELEASE OF VERSION 1.2.0
+2009-03-01   Moved Qt requirement to version 4.4.0 or later
+2009-03-01   Use plain text optimized class QPlainTextEdit for text editing
+2009-03-01   Updated bookmark's file netqinf.txt
+2009-02-27   Improved built-in network capabilities, including redirections and cookies
+2009-02-27   Added author to network query excerpts
+2009-02-27   Code cleanup through cppcheck
+2009-02-22   Updated build dependencies for Debian 5.0
+2009-02-05   RELEASE OF VERSION 1.1.1
+2009-01-17   Added heuristic recognition for authors (single and multiple blocks, natural order)
+2009-01-10   Revert Latin ligatures in document to plain text conversions
+2009-01-10   Improved author string processing
+2008-12-27   Improved pages, volume and number recognition
+2008-12-23   Convert ' & ' to ' and ' in journal before submitting a network query
+2008-12-23   Fixed a regression on month, editor and cite ID fields
+2008-12-21   Updated to Qt 4.5.0 QRegExp/QString semantic changes
+2008-12-21   Fixed spec file for openSuSE 11.1 build (Thanks to M. H&uuml;we)
+2008-12-17   RELEASE OF VERSION 1.1.0
+2008-12-07   Added cb2Bib's Annote viewer
+2008-12-07   Added --html-annote and --view-annote command line functionality
+2008-12-07   Fixed some issues regarding command line filenames and filedialogs in Windows
+2008-12-07   Synchronized BibTeX browser panel with reference line editors
+2008-11-30   Code cleanup and refactoring
+2008-11-30   Removed no longer needed external client for opening files
+2008-11-21   Fixed an issue with percent encoding/tag substitution custom bookmarks
+2008-11-21   Updated bookmark's file netqinf.txt for new ACS journals and Science URLs
+2008-10-22   RELEASE OF VERSION 1.0.4
+2008-10-21   Added 'any word/all words' type searches
+2008-10-20   Fixed buttons enabled/disabled in search dialog on Qt > 4.4.0
+2008-10-20   Fixed 'About panel' bookmarks not displaying dynamic links on Qt > 4.4.0
+2008-10-20   Improved pages, volume and number recognition
+2008-09-19   RELEASE OF VERSION 1.0.3
+2008-09-18   Recognize and process page format '123-3pp'
+2008-09-18   Set arXiv ID as BibTeX URL field
+2008-09-18   Fixed a bug when scrolling to 'Edit reference' in search if multiple edits were done
+2008-09-17   Force USB mode 'cb2Bib --conf' to use relative to BibTeX document filenames
+2008-09-17   Improved managing of relative document filenames
+2008-09-17   Added 'Export Entries' to export selected citations in BibTeX editor (Thanks to to A. M. Elena)
+2008-07-21   RELEASE OF VERSION 1.0.2
+2008-07-20   Added 'Edit reference' in search results
+2008-07-20   Fixed a regression for LaTeX-Unicode conversion for letters &Aring; and &AElig;
+2008-07-20   Set LyXPipe in Windows
+2008-07-20   Updated PNAS Url
+2008-07-10   Optimized approximate string when searching linked documents
+2008-07-10   Use Qt::AA_NativeWindows to avoid flickering on Qt 4.4.0
+2008-06-17   RELEASE OF VERSION 1.0.1
+2008-06-17   Fixed a bug that could result in computing negative word stretch in approximate strings
+2008-06-15   Fixed a bug sometimes blocking the reference list filter in BibTeX browser
+2008-06-15   Arranged BibTeX browser menus, made context and selection sensitive
+2008-06-15   Fixed a regression in BibTeX browser actions not properly showing in menus
+2008-06-15   Set sub and superscript conversions from HTML alt tags and [sub/p .] tags
+2008-06-15   Fixed BibTeX parser failing in some cases with nested braces
+2008-06-15   Added 'Update Documents Metadata' in BibTeX editor
+2008-06-10   Set BibTeX to Unicode letter conversions for \LaTeX{} syntax
+2008-06-10   Fixed a regression in clipboard's panel multiple line syntax highlighting
+2008-06-10   Added tag title for automatic queries, updated netqinf.txt
+2008-06-10   Set better flags for calling ExifTool (Thanks to P. Harvey)
+2008-06-07   RELEASE OF VERSION 1.0.0.1
+2008-06-07   Fixed an error in inserted metadata from PDFImport and multiple files
+2008-06-07   Fixed a regression preventing from setting correct djvu extension
+2008-06-07   RELEASE OF VERSION 1.0.0
+2008-06-07   Updated cb2Bib's license to GPL version 3
+2008-06-07   Added metadata writing through ExifTool
+2008-06-05   Set double braces to be seen only BibTeX preview and save
+2008-06-05   Removed BibTeX separator for author queries
+2008-06-05   Updated configuration dialog
+2008-06-05   Only set pdf extension in 'file' when none is given
+2008-06-05   Set Utf8 as default codec for files on Windows
+2008-06-05   Fixed minor bug in suggested regular expression for page
+2008-05-31   Added metadata reading and parsing
+2008-05-25   Fixed 'Postprocess month' not following settings
+2008-05-25   Added Select File in File context menu
+2008-05-25   Added clear functionality to combo boxes
+2008-05-07   RELEASE OF VERSION 0.9.5
+2008-05-07   Set LyX pipe selection for Qt 4.4.0 filedialogs
+2008-05-07   Fixed 'Search in files' headers and browser 'Select' icon display for Qt 4.4.0
+2008-04-15   Fixed missing HTML special character encoding when searching by field
+2008-04-08   Contributed regexps for Earth Planet Sci Lett,
+2008-04-08   Phys Earth Planet Inter, Geophys J Int (Thanks to L. A. C. Silva)
+2008-04-07   RELEASE OF VERSION 0.9.4
+2008-04-07   Updated bookmark netqinf.txt file
+2008-04-05   Set optionally file entries relative to current BibTeX file (Thanks to A. M. Elena)
+2008-04-03   Added tag selection to dynamic bookmarks
+2008-04-03   Added dynamic bookmarks to cb2Bib context menu
+2008-03-31   Moved basic edit actions to 'Edit' context submenu
+2008-03-05   Added cb2Bib browser context action 'Open Document Url'
+2008-03-05   Set cb2Bib browser link preference to local article file, to URL, and to DOI
+2008-03-05   Set PubMed ID as BibTeX URL field in PubMed extractions (Thanks to S. Tabibzadeh)
+2008-02-01   RELEASE OF VERSION 0.9.3
+2008-01-31   Added bookmark menu in the embedded editor
+2008-01-30   Fixed/Improved PubMed IDs extraction (update netqinf.txt)
+2008-01-30   Fixed ISBN recognition for cases 'ISBN 0: 0-0000-0000-0'
+2008-01-30   Fixed an issue when parsing bib keys formatted by KBibTeX (Thanks to D. Car)
+2007-12-07   RELEASE OF VERSION 0.9.2
+2007-12-07   Fixes/workarounds for filedialog and Qt<4.3.3. Added exec icon for X11.
+2007-12-05   Optimized BibTeX parser, searches and composite searches
+2007-12-04   Fixed merging of contiguous search excerpts
+2007-12-04   Fixed a bug when deleting search patterns, avoid accepting empty patterns
+2007-11-25   RELEASE OF VERSION 0.9.1
+2007-11-25   Fixed ISBN recognition for cases 'ISBN-0: 0-0000-0000-0'
+2007-11-25   Added filter mode selection to browser/editor reference list
+2007-11-25   Set filedialog to remember last size
+2007-11-25   Fixed compilation issue on Debian 4.1.1-21 (Thanks to A. Matuszak)
+2007-10-31   RELEASE OF VERSION 0.9.0
+2007-10-30   Show 'search in files' output in text mode if no hits but search errors
+2007-10-30   Consider 'editor' if 'author' is empty for cite IDs
+2007-10-30   Customizable page number separator (Thanks to C. Ullrich)
+2007-10-30   Consistent update of shortcuts: Use standard ones, and Alt modifier in other cases
+2007-10-30   Updated Editor/Browser menu
+2007-10-28   Added 'Search In Files' for selected text
+2007-10-28   Code refactoring: Added resource class c2b
+2007-10-27   Remove patterns '(Editor)', '(Ed)', ..., prior to processing an editors string
+2007-10-27   Improved heuristic guess for ISBN
+2007-10-27   Improved heuristic guess for abstract, considers tag 'summary'
+2007-10-26   Updated message dialogs for better desktop integration
+2007-10-26   Fixed shortcut for 'Deletes temporary BibTeX output file'
+2007-10-26   Set c2bUtils into namespace, some inlining of utilities
+2007-09-17   Fixed wrong renaming of non '.pdf' files when original filename has several '.'
+2007-09-05   RELEASE OF VERSION 0.8.4
+2007-09-05   Setting relative file paths and temporaries when launched with --conf option
+2007-09-05   Minor code cleanup
+2007-08-02   Updated netqinf.txt file
+2007-08-02   Updated PubMed/Medline parser
+2007-07-05   RELEASE OF VERSION 0.8.3.1
+2007-07-05   Fixed a regression while parsing command line
+2007-07-05   RELEASE OF VERSION 0.8.3
+2007-07-04   Fixed memory leak from cb2Bib not freeing c2bSearchInFiles
+2007-07-03   Fixed file dialog captions when using Qt 4.3.0
+2007-07-03   Do not show cb2Bib's main panel when launched with '--bibedit filename.bib'
+2007-07-03   Reorganized settings and updated windows installer
+2007-07-03   Considered user configuration files, --conf flag (Thanks to S. Oom)
+2007-07-03   Fixed Debian/Ubuntu packaging script (Thanks to L. Eraly)
+2007-07-02   Updated configure script
+2007-06-07   Fixed some dialogs not showing when using Qt 4.3.0
+2007-05-07   RELEASE OF VERSION 0.8.2
+2007-05-07   Fixed 'Unknown Error' when copying/moving files from PDFImport on Windows
+2007-05-07   Scape < and > symbols in browser
+2007-05-01   Fixed regression 'Copy instead of moving non-local files' for external clients
+2007-04-23   Added approximate string search
+2007-04-08   Added search highlight for abstracts
+2007-04-08   Added PDF search excerpts
+2007-04-08   Added cache for PDF search
+2007-04-08   Remember Browser font size
+2007-04-01   RELEASE OF VERSION 0.8.1
+2007-04-01   Copy instead of moving non-local files
+2007-04-01   Improved/optimized Search in Files functionality for composite patterns
+2007-04-01   Syncornized BibTeX Editor and Browser navigation
+2007-03-24   Set raw mode view as default, instead of tagged mode view
+2007-03-24   Set unique BibTeX parsing. Fixes parsing in Editor and Search in Files
+2007-03-24   Improved BibTeX recognition and parsing
+2007-03-24   Improved PDFImport functionality (Thanks to E. Gaubitzer)
+2007-03-18   Updated netqinf.txt and regexps.txt files
+2007-03-18   Added excerpt tag for queries
+2007-03-18   Improved journal and pages recognition
+2007-03-18   Cleanup and reorganization of settings management
+2007-03-16   Remove from PDFImport file list unsuccessfully converted files
+2007-03-16   Remember last directory/file in PDFImport filedialog (Thanks to E. Gaubitzer)
+2007-03-13   RELEASE OF VERSION 0.8.0
+2007-03-11   Added HTML browser view to BibTeX editor
+2007-03-10   Added 'Search references in files' functionality
+2007-03-10   Avoided cb2Bib's tags from interfering with heuristic recognition
+2007-03-10   Improved heuristic guess for volume, pages, and number
+2007-03-10   Added clear functionality to line editors
+2007-03-10   Updated all dialogs to make them consistent and desktop aware
+2007-03-10   Fixed preparser
+2007-03-10   Improved Find in Text dialog
+2007-03-09   Fixed Reference List not displaying booktitle
+2007-03-06   Fixed a rare wrong passing of optional arguments to external tools
+2007-03-06   Fixed history in filedialogs
+2007-03-06   Removed wrong slash in filedialog filenames when file did not exist
+2007-03-06   Fixed wrong editor exit when document is modified and cancel is pressed
+2007-02-18   RELEASE OF VERSION 0.7.3
+2007-02-17   Removed duplicated blank lines in external process logs
+2007-02-17   Convert HTML character encodings in PubMed reference import
+2007-02-17   Fixed URL encoding for opening files through internal desktop service
+2007-02-17   Remove braces in title replacement for Bookmarks
+2007-02-17   Fixed pages replacement for Bookmarks (fixes CR bookmark)
+2007-02-17   Remember word un/wrap mode in editors
+2007-02-17   Check if DOI is a web address in BibTeX editor before being opened
+2007-02-17   Added web search customization in BibTeX editor
+2007-02-16   Fixed/improved uppercased 'title' capitalization
+2006-12-06   RELEASE OF VERSION 0.7.2
+2006-12-06   Added choice to write 'title' in double braces
+2006-12-06   Fixed pasting of formatted text to BibTeX editor
+2006-12-06   Fixed CR regexp in netqinf.txt to not to read HTML-encoded DOI
+2006-12-06   Fixed a subtle bug preventing viewers from updating if text was selected
+2006-12-06   Added raw, non-preprocessed clipboard view mode (Thanks to M. Wegmann)
+2006-12-05   Updated configure and install doc for MacOSX (Thanks to Konstantin and P. Koshevoy)
+2006-12-04   Added "Download Reference to cb2Bib" functionality
+2006-12-04   Updated cb2Bib command line syntax
+2006-12-03   Added Mac OS X cb2bib.icns icon file (Thanks to Konstantin)
+2006-12-03   Added missing mingwm10.dll file on Windows package
+2006-10-30   RELEASE OF VERSION 0.7.1
+2006-10-30   Set default configure prefix to /usr (Thanks to T. Fischer)
+2006-10-30   Fixed configure to use -prefix path
+2006-10-30   Fixed LyX pipe not shown at file dialogs
+2006-10-30   Revert to internal file management if file copy/move/open client is empty
+2006-10-19   Fixed local file open on Windows
+2006-10-16   RELEASE OF VERSION 0.7.0
+2006-10-16   Fixed a regression when setting line/column in Editor
+2006-10-16   Improved BibTeX file selection through combo filename list
+2006-10-16   Added Editor's modified flag
+2006-10-16   Set KDE consistent 'Save'/'Save As' icons in BibTeX Editor
+2006-10-16   BibTeX Editor remembers Reference List position
+2006-10-16   Set consistent labeling in file dialogs
+2006-10-16   Added file history in file dialogs
+2006-10-16   Fixed a regression related to wrong file dialog messages
+2006-10-16   Consider integrated desktop service for URL opening
+2006-10-16   Use QFontComboBox for font selection
+2006-10-04   Fixed a regression when copying/moving files from PDFImport
+2006-08-31   Fixed a regression when selecting fields in cb2Bib panel
+2006-08-30   RELEASE OF PREVIEW 0.6.91
+2006-08-30   Fixed a regression in droped files encoding in PDFImport
+2006-08-29   Added queries by DOI (Thanks to T. Geissmann)
+2006-08-29   Updated netqinf.txt information file
+2006-08-29   Fixed a regression in the network functionality
+2006-08-29   Fixed a compilation issue on Mac OS (Thanks to M. Bongard)
+2006-08-25   RELEASE OF PREVIEW 0.6.90
+2006-08-25   Ported to Qt4
+2006-05-15   Updated netqinf.txt for NAR
+2006-04-24   RELEASE OF VERSION 0.6.1
+2006-04-24   Updated netqinf.txt for PNAS
+2006-04-24   Keep 'File' synchronized with 'CITEID'
+2006-04-24   Concatenate multiple 'title' in regexps, as 'Title: Subtitle' (Thanks to McKay Euan)
+2006-04-23   Added tooltip to 'File' with origen file name
+2006-04-23   Cleaned and updated network related classes
+2006-04-23   Schedule dropped or PDFImport file copying/moving until Bib item is saved
+2006-04-23   PDFImport rewritten, fixed several bugs (Thanks to M. Wegmann)
+2006-04-02   RELEASE OF VERSION 0.6.0
+2006-04-02   Added highlight for 'author|issue|title|volume' in clipboard
+2006-04-02   Added contributed regexp for PROLA (Thanks to Martint)
+2006-04-02   Added unified, platform independent new line recognition
+2006-04-02   Fixed missing 'NewLine' on OSX (Thanks to McKay Euan)
+2006-03-28   Fixed ScienceDirect regexp
+2006-03-28   Updated Wiley InterScience Example
+2006-03-22   Updated cb2Bib's icon
+2006-03-22   Added JTCC journal
+2006-03-18   Fixed 'Copy/Rename: Keep .djvu, .dvi, .ps, .ps.gz, .tex, .txt extensions' on Windows
+2006-03-18   Fixed RC_FILE (Windows and OSX)
+2006-02-21   RELEASE OF VERSION 0.5.3
+2006-02-21   Added SISC journal, and added contributed_re.txt (Thanks to G. B. @ RWTH)
+2006-02-20   Added 'Insert/Overwrite' flag to editor
+2006-02-20   Added 'File Save As' functionality to editor
+2006-02-20   Copy/Rename: Keep .djvu, .dvi, .ps, .ps.gz, .tex, .txt extensions
+2006-02-20   Added preparser scripts isi2bib and ris2bib
+2006-02-20   Added external preparser functionality
+2006-01-23   RELEASE OF VERSION 0.5.2
+2006-01-22   Fixed BibTeX parser for ending non-bracket cases (eg. 'year = 2000}')
+2006-01-22   Added Title and ISBN automatic guess
+2006-01-22   Fixed Abstract automatic guess
+2006-01-21   Added custom syntax colors
+2006-01-20   Fixed referencelist.cpp for icc/64 compiler
+2006-01-15   Get default font color from the Window Manager
+2005-12-12   RELEASE OF VERSION 0.5.1
+2005-12-12   Added 'Set active LyX pipe' in BibTeX edit menu
+2005-12-12   Added edit menu in BibTeX editor
+2005-12-12   BibTeX parser considers non-bracket cases (eg. 'year = 2000,')
+2005-12-11   Fixed syntax highlighter for commented lines
+2005-11-17   Added http POST command
+2005-11-16   Updated netqinf.txt for CR
+2005-11-14   Updated netqinf.txt for ACS
+2005-10-26   RELEASE OF VERSION 0.5.0
+2005-10-08   Proper capitalization: FIRST MID LAST -> First Mid Last
+2005-10-08   Added JSTOR regexp (Thanks to  B. Goodrich)
+2005-10-08   Added citeID customization (Thanks S. Oom for suggestions)
+2005-10-07   Set default path /usr/local/bin/pdftotext on Mac OS X
+2005-08-20   RELEASE OF VERSION 0.4.6
+2005-08-20   Fixed: Set current file when 'cb2bib --bibedit fn.bib'
+2005-08-20   Extended Unicode to LaTeX to all entries
+2005-08-20   Added equivalent processing for author and editor strings
+2005-08-20   Added 'Full Author and Editor Name' option
+2005-08-20   (Thanks to J. Schelp and B. Goodrich for suggestions)
+2005-08-12   'cb2bib --bibedit', show main maximized if no files are given
+2005-08-12   RELEASE OF VERSION 0.4.5
+2005-08-12   Fixed memory leak from c2bEditor
+2005-08-11   Added web search also in Editor's Reference List
+2005-08-11   Menu improvements
+2005-08-11   Unicode <-> LaTeX for infinity symbol
+2005-08-11   Fixed viewCb2Bib button behavior in BibTeX editor
+2005-08-11   BibTeX editor button functionality: edit/set editor on top
+2005-08-11   Allow for multiple BibTeX editors
+2005-07-06   RELEASE OF VERSION 0.4.4
+2005-07-06   Fixed bookmark and regexp editor: save before execute
+2005-07-06   Fixed netqinf.txt for PubMed
+2005-07-06   Fixed cb2Bib idle in multiple queries + debug file option
+2005-07-06   Alternate Journal Name no longer stored in 'annote' field
+2005-07-06   Added 'Journals to Full/Abbreviated Name' in editor
+2005-07-06   'configure' adapted to knoppix 3.6 (Thanks to cognite)
+2005-07-02   Removed 'install' checking in 'configure' script
+2005-07-02   ClipboardPoll disabled as default for Mac OS X
+2005-06-16   RELEASE OF VERSION 0.4.3
+2005-06-15   Set Postprocess widget to modeless
+2005-06-15   Added menu entries
+2005-06-15   Added heuristic recognition
+2005-06-01   Added line number indicator in editor
+2005-06-01   Fixed translating '&' to LaTeX multiple times
+2005-05-29   Do not reload current BibEditor if ref added to a different file
+2005-05-29   Code rearrangement and cleaning: c2bBibParser
+2005-05-11   RELEASE OF VERSION 0.4.2
+2005-05-11   Added reference navigation in BibTeX editor
+2005-05-09   Improved search capabilities in BibTeX editor
+2005-05-09   Added LyX pipe citation procedure:
+2005-05-09   adapted from R. Stephenson's Tellico
+2005-05-09   Added Reference List in BibTeX editor
+2005-05-06   Added desktop file
+2005-05-04   Uppercase greeks, also in "PNAS-style" {}, (), or [] delimiters
+2005-05-04   Added automatic conversion for "PNAS-style" {middle dot}
+2005-04-23   RELEASE OF VERSION 0.4.1
+2005-04-23   Added scripts bib2pdf and bib2end.bat
+2005-04-23   Added Postprocessing of current BibTeX file
+2005-04-23   (Thanks to J. Tan for suggestions)
+2005-04-19   Added command line 'cb2bib [[--bibedit] filename.bib]'
+2005-04-19   Added 'author' to 'Convert string to LaTeX' config
+2005-04-19   Added 'Selection to Unicode' in BibTeX editor
+2005-04-19   Added 'Selection to LaTeX' in BibTeX editor
+2005-04-18   Fixed Clipboard change notifications
+2005-04-18   (Thanks to L. Lunak for help and ClipboardPoll code)
+2005-04-07   RELEASE OF VERSION 0.4.0
+2005-04-06   Added customizable input preprocessing
+2005-04-06   Rearrange main window buttons
+2005-04-06   Added Editor Search capability
+2005-04-06   Fix Modified Editor and Exit main window
+2005-04-04   Initialize 'view BibTeX' Scroll Bar position
+2005-04-04   Remember 'About' Scroll Bar position
+2005-04-04   Added Contextual Help
+2005-04-04   Added convenience BibTeX File editor
+2005-03-17   RELEASE OF VERSION 0.3.6
+2005-03-16   Added ~ 10 more Unicode <-> LaTeX translations
+2005-03-16   Improved 'pages' postprocessing
+2005-03-16   Consider inverted commas as BibTeX delimiter
+2005-02-17   Remove start and end blank in BibTeX field string
+2005-02-09   RELEASE OF VERSION 0.3.5
+2005-02-09   Parse whole netqinf.txt if 'No article found'
+2005-02-07   Remember Config page
+2005-02-07   Rearrange About/View BibTeX buttons behavior
+2005-01-21   RELEASE OF VERSION 0.3.4
+2005-01-20   Add 'Make Network Query' button
+2005-01-20   DOI automatic extraction
+2005-01-19   'PubMed Search' import (J.Name. year month;vol(n):pp.)
+2005-01-19   Add significative error messages for missing filenames
+2005-01-19   RegExp/Bookmarks Editor arrangement
+2005-01-19   Added convenience bookmarks
+2005-01-18   Consider author suffixes in Medline extraction
+2005-01-18   Consider Medline AU if FAU isn't available
+2005-01-15   Include DOI in Medline extraction
+2005-01-14   RELEASE OF VERSION 0.3.3
+2005-01-14   Added 'PubMed - Medline Journal' recognition
+2005-01-13   Introduced simple Journal-Volume-Page queries
+2005-01-10   (Thanks S. Vega and probono for suggestions)
+2005-01-08   Added last name prefix 'vande'
+2005-01-07   Added complete ACS journal list
+2005-01-04   Arrangement copy/move/open for local/network files
+2004-12-29   RELEASE OF VERSION 0.3.2
+2004-12-29   Previous add conflicted 'van der Wal, Jan and Lieb, Jely A.'
+2004-12-28   RELEASE OF VERSION 0.3.1
+2004-12-27   'Abcd, E., F. Ghij, ...' citation style (Thanks P. Magwene)
+2004-12-27   Fix slow highlighting 
+2004-12-21   RELEASE OF VERSION 0.3.0
+2004-12-20   Consider interlaced authors-affiliations, removed moreauthors
+2004-12-20   Regexps deposition note (Thanks J. Vertrees)
+2004-12-20   Enable/Disable 'Add BibTeX to file' button
+2004-12-20   Added convenience RegExp File editor
+2004-12-20   Render disabled icons in grayscale
+2004-12-14   Valgrind memory leak debugging
+2004-12-08   RELEASE OF VERSION 0.2.8
+2004-12-08   Fix a wrong enable/disable behavior in PDFImport button
+2004-12-07   Convert to lower case titles completely uppercase
+2004-12-07   Fix: PDF renaming consistently managed by cb2Bib instead of kfmclient
+2004-12-07   Added error description for file related warnings
+2004-12-01   Added 'IOP Electronic Journals' import
+2004-10-22   Add abstract|introduction|keywords|key words highlight
+2004-10-19   RELEASE OF VERSION 0.2.7
+2004-10-19   PDFImport via pdftotext (Thanks F. C. Coelho for suggestions)
+2004-09-19   RELEASE OF VERSION 0.2.6
+2004-09-19   TeX <-> Unicode translations for Greek letters
+2004-09-19   Choice for title Unicode -> LaTeX conversion
+2004-09-18   Added some few journal abbreviations
+2004-09-18   Fix wrong recognition 'First S.P.'(Thanks S. Oom)
+2004-09-18   Fix 'Last, DE' - conflicting First and initials with suffixes
+2004-09-18   Added author prefix 'da' and suffix 'Jr'
+2004-09-08   RELEASE OF VERSION 0.2.5
+2004-09-08   Choice for short/long journal names
+2004-09-08   'month' postprocessing (Thanks F. Hedman)
+2004-09-08   Added 'Alt D' to delete temporary BibTeX output (Thanks S. Oom)
+2004-09-07   Added 'Alt R' accelerator to start automatic recognition
+2004-09-07   Proper recognition for 'First I Second, '
+2004-09-02   RELEASE OF VERSION 0.2.4
+2004-09-02   Previous fix conflicted with 'First I. Second, '
+2004-08-31   Fix message pointing to wrong file (Thanks G. Palfinger)
+2004-08-30   RELEASE OF VERSION 0.2.3
+2004-08-30   Fix wrong recognition 'First SP, Second WE, '(Thanks S. Oom)
+2004-08-30   RELEASE OF VERSION 0.2.2
+2004-08-29   Experimental: kfmclient to retrieve pdf files
+2004-08-29   Thanks F. Hedman:
+2004-08-28   Improved automatic URL recognition
+2004-08-28   Added BibTeX fields 'eprint' and 'doi'
+2004-08-22   RELEASE OF VERSION 0.2.1
+2004-08-22   Workaround for acrobat, mozilla, qt 3.3.3 issues
+2004-08-17   Fixed 'file' - 'eprint' duplication in BibTeX output
+2004-08-13   Set 'article' as default type
+2004-07-30   RELEASE OF VERSION 0.2.0
+2004-07-30   Improved visual input/output presentation
+2004-07-29   RegExp format changes: Added extra line for reference types
+2004-07-29   RegExp format changes: 'authors' -> 'author'
+2004-07-29   Extend reference fields list
+2004-07-28   Input reference type list
+2004-07-12   RELEASE OF VERSION 0.1.4
+2004-07-12   Fix "F.-S. Last" author name processing
+2004-07-12   Fix to compile against Qt 3.1.0 or later
+2004-07-11   RELEASE OF VERSION 0.1.3
+2004-07-09   Improved 'ScienceDirect' import
+2004-07-09   Improved TeX <-> Unicode translations
+2004-07-09   Added 'Nature from Fisrt Paragraph' import
+2004-07-08   Added 'DBLP article' import (thanks to P. Woelfel)
+2004-07-08   Consider also '&' as a separator in author automatic recognition
+2004-07-08   Fixing 'empty-field {}' error in BibTeX recognition
+2004-07-07   Improved MakeCiteID for composite names
+2004-07-07   Consider composing sufix 'III'
+2004-07-07   Added LastName prefix 'dos' and 'del'
+2004-07-07   Corrected JCICS extended journal name
+2004-07-05   RELEASE OF VERSION 0.1.2
+2004-07-05   Added 'ISI Web of Knowledge Table of Contents Alert' import.
+2004-07-05   Fixing: 'Last, FST' -> 'F. S. T. Last' (but not 'LAST, FIRST')
+2004-07-05   Proper last name capitalization ('LAST-NAME' -> 'Last-Name')
+2004-07-04   Escaping math characters '&#x2202;' and '&#x2212;'
+2004-07-03   RELEASE OF VERSION 0.1.1
+2004-07-01   Escaping accented characters (MakeCiteID and authors and title in MakeBib)
+2004-06-29   RELEASE OF VERSION 0.1.0

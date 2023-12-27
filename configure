@@ -1,0 +1,365 @@
+#!/bin/sh
+#------------------------------------------------------------------------------
+# cb2Bib configuration script:
+# - Checks for QTDIR
+#   -- If set, checks for qmake at QTDIR
+#   -- If not set, checks for qmake at PATH and other usual locations
+# - Manages Installation directory data
+# - Runs qmake
+#
+# Modifications for the cb2Bib Gentoo build descriptions
+# by Hugo Mildenberger and Andreas K. Huettel
+# Copyright 2009 Hugo Mildenberger and Andreas K. Huettel
+# - December 2009: do not use temporary files, fix sed regular
+#   expression, set both enable/disable for options, and add 
+#   call to qmake option.
+#
+# Modifications for the cb2Bib Debian distribution package
+# by Filippo Rusconi
+# Copyright 2009 Filippo Rusconi
+# - June 2009: replace ' ' with ':' along with use of IFS=: as
+#   word-splitting delimiter for PATH-related tasks (Thanks Lionel
+#   Mamane).
+# - September 2009: protect all shell variables against spaces.
+#
+#------------------------------------------------------------------------------
+# ( originally based upon 'shell script to configure doxygen',
+#   http://www.stack.nl/~dimitri/doxygen/
+#   Copyright (C) 1997-2001 by Dimitri van Heesch )
+#
+# Permission to use, copy, modify, and distribute this software and its
+# documentation under the terms of the GNU General Public License is hereby
+# granted. No representations are made about the suitability of this software
+# for any purpose. It is provided "as is" without express or implied warranty
+# See the GNU General Public License for more details
+#------------------------------------------------------------------------------
+
+platform=`uname -s`
+
+echo
+echo "Configuration script for cb2Bib (Unix/Linux/MacOSX)"
+echo
+f_prefix=/data/data/com.termux/files/usr
+f_bindir=/data/data/com.termux/files/usr/bin
+f_datadir=/data/data/com.termux/files/usr/share/cb2bib
+f_desktopdatadir=/data/data/com.termux/files/usr/share/applications
+f_icondir=/data/data/com.termux/files/usr/share/pixmaps
+
+f_qmake=NO
+f_make=NO
+f_enable_cbpoll=NO
+f_enable_lz4=y
+f_enable_lzo=NO
+f_enable_lzsse=NO
+f_enable_qt_zlib=NO
+f_enable_avx2=NO
+f_disable_qmake_call=NO
+
+while test -n "$1";  do
+  case $1 in
+    --prefix | -prefix)
+       shift; f_prefix="$1" ; f_bindir="$1/bin" ; f_datadir="$1/share/cb2bib" ; f_desktopdatadir="$1/share/applications" ; f_icondir="$1/share/pixmaps"
+       ;;
+    --bindir | -bindir)
+       shift; unset f_prefix ; f_bindir="$1"
+       ;;
+    --datadir | -datadir)
+       shift; unset f_prefix ; f_datadir="$1/cb2bib"
+       ;;
+    --desktopdatadir | -desktopdatadir)
+       shift; unset f_prefix ; f_desktopdatadir="$1"
+       ;;
+    --icondir | -icondir)
+       shift; unset f_prefix ; f_icondir="$1"
+       ;;
+    --qmakepath | -qmakepath)
+       shift; unset f_qmake ; f_qmake="$1"
+       ;;
+    -h | --help | -help)
+       f_help=y
+       ;;
+    --enable-cbpoll | -enable-cbpoll)
+       f_enable_cbpoll=y
+       ;;
+    --disable-cbpoll | -disable-cbpoll)
+       f_enable_cbpoll=NO
+       ;;
+    --enable-lzo | -enable-lzo)
+       f_enable_lz4=NO ; f_enable_lzo=y ; f_enable_lzsse=NO ; f_enable_qt_zlib=NO
+       ;;
+    --enable-lzsse | -enable-lzsse)
+       f_enable_lz4=NO ; f_enable_lzO=NO ; f_enable_lzsse=y ; f_enable_qt_zlib=NO
+       ;;
+    --enable-qt-zlib | -enable-qt-zlib)
+       f_enable_lz4=NO ; f_enable_lzO=NO ; f_enable_lzsse=NO ; f_enable_qt_zlib=y
+       ;;
+    --enable-lz4 | -enable-lz4)
+       f_enable_lz4=y ; f_enable_lzO=NO ; f_enable_lzsse=NO ; f_enable_qt_zlib=NO
+       ;;
+    --enable-avx2 | -enable-avx2)
+       f_enable_avx2=y
+       ;;
+    --enable-qmake-call | -enable-qmake-call)
+       f_disable_qmake_call=NO
+       ;;
+    --disable-qmake-call | -disable-qmake-call)
+       f_disable_qmake_call=y
+       ;;
+    *)
+       echo "-----------------------------------------------------------------------"
+       echo Error: Unknown argument $1
+       echo "-----------------------------------------------------------------------"
+       echo ""
+       f_help=y
+       f_error=y
+       ;;
+  esac
+  shift
+done
+
+if test "$f_help" = y; then
+  cat <<EOF
+Usage: $0 [--help] [--prefix dir] [--bindir dir] [--datadir dir] ...
+
+Options:
+
+  General:
+  --help                Print this help
+  --qmakepath dir       qmake fullpath name
+                        [example: --qmakepath /data/data/com.termux/files/usr/bin/qmake]
+  --prefix dir          Installation prefix directory
+                        [default: /data/data/com.termux/files/usr]
+  --bindir dir          Executable installation directory
+                        [default: /data/data/com.termux/files/usr/bin]
+  --datadir dir         Data installation directory
+                        [default: //data/data/com.termux/filesusr/share/cb2bib]
+  --enable-lz4          Enable linking with LZ4 library [default]
+  --enable-lzo          Enable linking with LZO library
+  --enable-qt-zlib      Enable linking with Qt's ZLIB library
+  --enable-lzsse        Enable linking with LZSSE library
+                        [see ./src/c2b/lzsse4/README.txt]
+  --enable-avx2         Enable using AVX2 instructions
+  --enable-qmake-call   Enable configure to call qmake [default]
+  --disable-qmake-call  Disable configure to call qmake
+
+
+  Unix/Linux only:
+  --desktopdatadir dir  Desktop data installation directory
+                        [default: /data/data/com.termux/files/usr/share/applications]
+  --icondir dir         Icon installation directory
+                        [default: /data/data/com.termux/files/usr/share/pixmaps]
+  --enable-cbpoll       Enable clipboard poll
+  --disable-cbpoll      Disable clipboard poll [default]
+
+EOF
+  test "$f_error" = y && exit 1
+  exit 0;
+fi
+
+echo "-----------------------------------------------------------------------"
+echo "Platform: $platform"
+echo "-----------------------------------------------------------------------"
+echo "Setting installation directories..."
+if test "$f_prefix"; then
+  echo "Setting installation relative to dir: $f_prefix"
+fi
+if test "$f_bindir"; then
+  echo "Setting installation executable to dir: $f_bindir"
+fi
+if test "$f_datadir"; then
+  echo "Setting installation cb2Bib data files relative to dir: $f_datadir"
+fi
+if test "$f_desktopdatadir"; then
+  echo "Setting installation desktop data files to dir: $f_desktopdatadir"
+fi
+if test "$f_icondir"; then
+  echo "Setting installation icon file to dir: $f_icondir"
+fi
+echo "-----------------------------------------------------------------------"
+
+echo
+echo "-----------------------------------------------------------------------"
+echo "cb2Bib Info:"
+echo "-----------------------------------------------------------------------"
+echo "- This version requires Qt 5.7.0 or later."
+echo " "
+echo "- Set the environment variable QTDIR if this script cannot determine"
+echo "  the right Qt qmake."
+echo "- QTDIR will only be used during configuration; it can later be reset"
+echo "  to its original value."
+echo " "
+echo "- Alternatively, set Qt5 qmake's fullpath name with"
+echo "  --qmakepath flag."
+echo "-----------------------------------------------------------------------"
+
+#- check for qt ---------------------------------------------------------------
+
+echo
+echo "Checking for Qt/qmake:"
+  if test "$f_qmake" != NO; then
+    echo -n "Checking for qmake tool... "
+    if test ! -x "$f_qmake"; then
+      echo "Specified $f_qmake could not be found."
+      exit 2
+    else
+      echo "using $f_qmake."
+    fi
+  elif test -z "$QTDIR"; then
+    echo "Environment variable QTDIR not set, checking elsewhere for qmake..."
+    echo -n "Checking for qmake tool... "
+    if test "$f_qmake" = NO; then
+      qmake_name="qmake-qt5"
+      qmake_dirs="/data/data/com.termux/files/usr/bin:/usr/lib64/qt5/bin:/usr/lib/qt5/bin:/usr/bin:/usr/lib/qt/bin:/usr/share/qt/bin:/Developer/Tools/Qt:$PATH"
+      qmake_prog=NO
+      IFS=:
+      for j in $qmake_dirs; do
+        if test -x "$j/$qmake_name"; then
+          qmake_prog="$j/$qmake_name"
+          break 1
+        fi
+      done
+      unset IFS
+      f_qmake="$qmake_prog" 
+    fi
+    if test "$f_qmake" = NO; then
+      qmake_name="qmake"
+      qmake_dirs="/data/data/com.termux/files/usr/lib/x86_64-linux-gnu/qt5/bin:/usr/lib/i386-linux-gnu/qt5/bin:/usr/lib/arm-linux-gnueabi/qt5/bin:/usr/lib/mips-linux-gnu/qt5/bin:/usr/lib/powerpc-linux-gnu/qt5/bin:/usr/lib/powerpc64le-linux-gnu/qt5/bin:/usr/lib64/qt5/bin:/usr/lib/qt5/bin:/Developer/Tools/Qt:$PATH"
+      qmake_prog=NO
+      IFS=:
+      for j in $qmake_dirs; do
+        if test -x "$j/$qmake_name"; then
+          qmake_prog="$j/$qmake_name"
+          break 1
+        fi
+      done
+      unset IFS
+      f_qmake="$qmake_prog" 
+    fi
+    if test "$f_qmake" = NO; then
+      echo "not found!"
+      echo
+      echo "Please, check if required Qt/qmake is properly installed."
+      echo "If so, set QTDIR environment variable to your Qt root directory."
+      exit 2
+    fi
+    echo "using $f_qmake."
+  else
+    echo "Using QTDIR environment variable for Qt directory location."
+    echo "Checking for Qt tools at $QTDIR..."
+    echo -n "Checking for qmake tool... "
+    if test ! -x "$QTDIR/bin/qmake"; then
+      echo "QTDIR is set, but the qmake could not be found in $QTDIR/bin."
+      exit 2
+    else
+      f_qmake="$QTDIR/bin/qmake"
+      echo "using $QTDIR/bin/qmake."
+    fi
+  fi
+  "$f_qmake" -v
+
+
+#------------------------------------------------------------------------------
+# Set directories for binaries search
+#------------------------------------------------------------------------------
+bin_dirs="/data/data/com.termux/files/usr/bin:/usr/local/bin:/bin:/sbin:$PATH"
+#------------------------------------------------------------------------------
+
+
+# - check for make ------------------------------------------------------------
+
+echo
+echo "Checking for additional tools:"
+echo -n "Checking for make..."
+if test "$f_make" = NO; then
+  make_names="gmake:make"
+  make_prog=NO
+  IFS=:
+  for i in $make_names; do
+    for j in $bin_dirs ; do
+      if test -x "$j/$i"; then
+        if test -n "`$j/$i --version 2>/dev/null | grep GNU`"; then
+          make_prog="$j/$i"
+          break 2
+        fi
+      fi
+    done
+  done
+  unset IFS
+  f_make="$make_prog" 
+fi
+
+if test "$f_make" != NO; then
+  echo "using $f_make."
+else
+  echo "not found."
+fi
+
+#- Setting dirs and start qmake -----------------------------------------------
+
+echo
+sed -i -e 's%^.*cb2bibdata\.path .*$%cb2bibdata.path = '$f_datadir'%g' \
+       -e 's%^.*cb2bibdoc\.path .*$%cb2bibdoc.path = '$f_datadir'/doc%g' \
+       -e 's%^.*target\.path .*$%target.path = '$f_bindir'%g' \
+       -e 's%^.*script\.path .*$%script.path = '$f_bindir'%g' \
+       -e 's%^.*desktop\.path .*$%desktop.path = '$f_desktopdatadir'%g' \
+       -e 's%^.*icons\.path .*$%icons.path = '$f_icondir'%g' src/src.pro
+sed -i 's%^const QLatin1String C2B_DATA_DIR.*$%const QLatin1String C2B_DATA_DIR("'$f_datadir'/");%g' src/c2b/cb2bib_parameters.h
+
+f_configs=
+if test "$f_enable_cbpoll" = y; then
+  echo "Setting clipboardPoll enabled"
+  f_configs="$f_configs -config enable_cbpoll"
+fi
+if test "$f_enable_lz4" = y; then
+  echo "Setting LZ4 enabled"
+  f_configs="$f_configs -config use_lz4"
+fi
+if test "$f_enable_lzo" = y; then
+  echo "Setting LZO enabled"
+  f_configs="$f_configs -config use_lzo"
+fi
+if test "$f_enable_lzsse" = y; then
+  echo "Setting LZSSE enabled"
+  f_configs="$f_configs -config use_lzsse"
+fi
+if test "$f_enable_qt_zlib" = y; then
+  echo "Setting Qt ZLIB enabled"
+  f_configs="$f_configs -config use_qt_zlib"
+fi
+if test "$f_enable_avx2" = y; then
+  echo "Setting AVX2 enabled"
+  f_configs="$f_configs -config use_avx2"
+fi
+
+if test "$f_disable_qmake_call" = NO; then
+  echo ""
+  echo "Running $f_qmake $f_configs -o Makefile"
+  "$f_qmake" $f_configs -o Makefile
+else
+  echo ""
+  echo "Writing qmake flags to file 'qmake-additional-args'"
+  echo $f_configs > qmake-additional-args
+fi
+
+echo " "
+if test "$f_make" = NO; then
+  echo "-----------------------------------------------------------------------"
+  echo "Configuration ended. 'make' not found."
+  echo "Build toolchain might not be completed."
+  echo "-----------------------------------------------------------------------"
+  exit 1
+else
+  echo "-----------------------------------------------------------------------"
+  echo "- NOTE: Type 'make distclean' or, preferably, untar again to set other"
+  echo "  configure flags."
+  echo "-----------------------------------------------------------------------"
+  echo " "
+  echo "-----------------------------------------------------------------------"
+  if test "$f_disable_qmake_call" = NO; then
+    echo "Configuration ended. Type 'make' and 'make install'."
+  else
+    echo "Configuration ended. Run qmake, and type 'make' and 'make install'."
+  fi
+  echo "-----------------------------------------------------------------------"
+  echo " "
+fi

@@ -1,0 +1,13 @@
+cb2Bib. Copyright (C) 2004-2021 by Pere Constans
+
+
+cb2Bib includes third party GPL and LGPL code that is copyrighted by others:
+
+- Class clipboardPoll is based on work by Lubos Lunak, 2003
+
+- Function citeToLyXPipe is adapted from work by Robby Stephenson, 2005
+
+- Class QtSingleApplication by Digia Plc, 2013
+
+- Icons come from the Oxygen, Crystal SVG, and Noia icon sets, published by the
+  KDE Desktop Environment.
