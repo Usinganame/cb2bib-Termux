@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <author>Pere Constans</author>
+ <class>c2bEditor</class>
+ <widget class="QMainWindow" name="c2bEditor">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>801</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Editor - cb2Bib</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>801</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="helpEditorAction"/>
+    <addaction name="separator"/>
+    <addaction name="helpCb2BibAction"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>&amp;Edit</string>
+    </property>
+    <addaction name="setLyXPipeAction"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>&amp;View</string>
+    </property>
+    <addaction name="viewEditorModeAction"/>
+    <addaction name="separator"/>
+    <addaction name="viewCb2BibAction"/>
+    <addaction name="separator"/>
+    <addaction name="viewZoomInAction"/>
+    <addaction name="viewZoomOutAction"/>
+    <addaction name="separator"/>
+   </widget>
+   <widget class="QMenu" name="menuSettings">
+    <property name="title">
+     <string>&amp;Settings</string>
+    </property>
+    <addaction name="settingsCb2BibAction"/>
+   </widget>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="fileOpenAction"/>
+    <addaction name="separator"/>
+    <addaction name="fileSaveAction"/>
+    <addaction name="fileSaveAsAction"/>
+    <addaction name="fileExecAction"/>
+    <addaction name="separator"/>
+    <addaction name="fileExportEntriesAction"/>
+    <addaction name="separator"/>
+    <addaction name="fileCloseAction"/>
+    <addaction name="separator"/>
+    <addaction name="fileExitAction"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuView"/>
+   <addaction name="menuSettings"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>Tools</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="fileSaveAction"/>
+   <addaction name="fileExecAction"/>
+   <addaction name="viewEditorModeAction"/>
+   <addaction name="viewCb2BibAction"/>
+  </widget>
+  <action name="fileSaveAction">
+   <property name="icon">
+    <iconset resource="cb2bib.qrc">
+     <normaloff>:/icons/icons/filesave22.png</normaloff>:/icons/icons/filesave22.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="statusTip">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="fileSaveAsAction">
+   <property name="icon">
+    <iconset resource="cb2bib.qrc">
+     <normaloff>:/icons/icons/filesaveas22.png</normaloff>:/icons/icons/filesaveas22.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save As...</string>
+   </property>
+   <property name="iconText">
+    <string>Save As</string>
+   </property>
+   <property name="toolTip">
+    <string>Save As</string>
+   </property>
+   <property name="statusTip">
+    <string>Save as...</string>
+   </property>
+  </action>
+  <action name="fileExecAction">
+   <property name="icon">
+    <iconset resource="cb2bib.qrc">
+     <normaloff>:/icons/icons/exec22.png</normaloff>:/icons/icons/exec22.png</iconset>
+   </property>
+   <property name="text">
+    <string>Exec</string>
+   </property>
+  </action>
+  <action name="fileCloseAction">
+   <property name="icon">
+    <iconset resource="cb2bib.qrc">
+     <normaloff>:/icons/icons/fileclose22.png</normaloff>:/icons/icons/fileclose22.png</iconset>
+   </property>
+   <property name="text">
+    <string>Close Document</string>
+   </property>
+   <property name="iconText">
+    <string>Close Document</string>
+   </property>
+   <property name="toolTip">
+    <string>Close Document</string>
+   </property>
+   <property name="statusTip">
+    <string>Close document</string>
+   </property>
+  </action>
+  <action name="fileExitAction">
+   <property name="icon">
+    <iconset resource="cb2bib.qrc">
+     <normaloff>:/icons/icons/exit.png</normaloff>:/icons/icons/exit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+   <property name="iconText">
+    <string>Exit cb2Bib</string>
+   </property>
+   <property name="toolTip">
+    <string>Exit cb2Bib</string>
+   </property>
+   <property name="statusTip">
+    <string>Exit cb2Bib</string>
+   </property>
+  </action>
+  <action name="helpEditorAction">
+   <property name="icon">
+    <iconset resource="cb2bib.qrc">
+     <normaloff>:/icons/icons/help16.png</normaloff>:/icons/icons/help16.png</iconset>
+   </property>
+   <property name="text">
+    <string>Editor Help</string>
+   </property>
+   <property name="iconText">
+    <string>Editor Help</string>
+   </property>
+   <property name="toolTip">
+    <string>Editor Help</string>
+   </property>
+   <property name="statusTip">
+    <string>Editor context help</string>
+   </property>
+  </action>
+  <action name="viewCb2BibAction">
+   <property name="icon">
+    <iconset resource="cb2bib.qrc">
+     <normaloff>:/icons/icons/cb2bib22.png</normaloff>:/icons/icons/cb2bib22.png</iconset>
+   </property>
+   <property name="text">
+    <string>Toggle cb2Bib</string>
+   </property>
+   <property name="iconText">
+    <string>Toggle cb2Bib</string>
+   </property>
+   <property name="statusTip">
+    <string>Toggle cb2Bib</string>
+   </property>
+   <property name="shortcut">
+    <string>F2</string>
+   </property>
+  </action>
+  <action name="setLyXPipeAction">
+   <property name="text">
+    <string>Set LyX Pipe</string>
+   </property>
+   <property name="iconText">
+    <string>Set active LyX pipe</string>
+   </property>
+   <property name="toolTip">
+    <string>Set LyX pipe</string>
+   </property>
+   <property name="statusTip">
+    <string>Set active LyX pipe</string>
+   </property>
+  </action>
+  <action name="viewEditorModeAction">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="cb2bib.qrc">
+     <normaloff>:/icons/icons/edit22.png</normaloff>:/icons/icons/edit22.png</iconset>
+   </property>
+   <property name="text">
+    <string>Toggle Editing and Browsing</string>
+   </property>
+   <property name="iconText">
+    <string>Toggle Editing and Browsing</string>
+   </property>
+   <property name="toolTip">
+    <string>Toggle Editing and Browsing</string>
+   </property>
+   <property name="statusTip">
+    <string>Toggle editing and browsing modes</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="viewZoomInAction">
+   <property name="icon">
+    <iconset resource="cb2bib.qrc">
+     <normaloff>:/icons/icons/viewZoomIn.png</normaloff>:/icons/icons/viewZoomIn.png</iconset>
+   </property>
+   <property name="text">
+    <string>Zoom In</string>
+   </property>
+   <property name="statusTip">
+    <string>Zoom in</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="viewZoomOutAction">
+   <property name="icon">
+    <iconset resource="cb2bib.qrc">
+     <normaloff>:/icons/icons/viewZoomOut.png</normaloff>:/icons/icons/viewZoomOut.png</iconset>
+   </property>
+   <property name="text">
+    <string>Zoom Out</string>
+   </property>
+   <property name="statusTip">
+    <string>Zoom out</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="helpCb2BibAction">
+   <property name="icon">
+    <iconset resource="cb2bib.qrc">
+     <normaloff>:/icons/icons/cb2bib22.png</normaloff>:/icons/icons/cb2bib22.png</iconset>
+   </property>
+   <property name="text">
+    <string>cb2Bib Help</string>
+   </property>
+   <property name="iconText">
+    <string>cb2Bib Help</string>
+   </property>
+   <property name="toolTip">
+    <string>cb2Bib Help</string>
+   </property>
+   <property name="statusTip">
+    <string>cb2Bib context help</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+F1</string>
+   </property>
+  </action>
+  <action name="settingsCb2BibAction">
+   <property name="icon">
+    <iconset resource="cb2bib.qrc">
+     <normaloff>:/icons/icons/configure.png</normaloff>:/icons/icons/configure.png</iconset>
+   </property>
+   <property name="text">
+    <string>cb2Bib Settings</string>
+   </property>
+   <property name="iconText">
+    <string>cb2Bib Settings</string>
+   </property>
+   <property name="toolTip">
+    <string>cb2Bib Settings</string>
+   </property>
+   <property name="statusTip">
+    <string>cb2Bib settings</string>
+   </property>
+  </action>
+  <action name="fileOpenAction">
+   <property name="icon">
+    <iconset resource="cb2bib.qrc">
+     <normaloff>:/icons/icons/fileopen22.png</normaloff>:/icons/icons/fileopen22.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open</string>
+   </property>
+   <property name="iconText">
+    <string>Open</string>
+   </property>
+   <property name="statusTip">
+    <string>Open document</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="fileExportEntriesAction">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="cb2bib.qrc">
+     <normaloff>:/icons/icons/configure_bibtex.png</normaloff>:/icons/icons/configure_bibtex.png</iconset>
+   </property>
+   <property name="text">
+    <string>Export Entries</string>
+   </property>
+   <property name="iconText">
+    <string>Export Entries</string>
+   </property>
+   <property name="toolTip">
+    <string>Export Entries</string>
+   </property>
+   <property name="statusTip">
+    <string>Export selected entries</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="cb2bib.qrc"/>
+ </resources>
+ <connections/>
+</ui>

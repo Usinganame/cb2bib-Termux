@@ -1,0 +1,160 @@
+<ui version="4.0" >
+ <author>Pere Constans</author>
+ <class>c2bRLWebSearchSettings</class>
+ <widget class="QDialog" name="c2bRLWebSearchSettings" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>466</width>
+    <height>152</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Web Search Settings - cb2Bib</string>
+  </property>
+  <property name="sizeGripEnabled" >
+   <bool>false</bool>
+  </property>
+  <layout class="QGridLayout" >
+   <property name="margin" >
+    <number>6</number>
+   </property>
+   <property name="spacing" >
+    <number>3</number>
+   </property>
+   <item row="3" column="0" colspan="3" >
+    <widget class="QCheckBox" name="addQuotes" >
+     <property name="text" >
+      <string>&amp;Add quotes to query</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="1" >
+    <spacer>
+     <property name="orientation" >
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType" >
+      <enum>QSizePolicy::Expanding</enum>
+     </property>
+     <property name="sizeHint" stdset="0" >
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="5" column="0" colspan="3" >
+    <widget class="Line" name="line" >
+     <property name="orientation" >
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="2" >
+    <widget class="QDialogButtonBox" name="buttonBox" >
+     <property name="layoutDirection" >
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="autoFillBackground" >
+      <bool>true</bool>
+     </property>
+     <property name="orientation" >
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons" >
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+     <property name="centerButtons" >
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="0" >
+    <spacer>
+     <property name="orientation" >
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0" >
+      <size>
+       <width>121</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="0" column="0" colspan="3" >
+    <widget class="QLabel" name="label" >
+     <property name="text" >
+      <string>Search Engine:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="3" >
+    <widget class="c2bComboBox" name="searchEngine" >
+     <property name="editable" >
+      <bool>true</bool>
+     </property>
+     <property name="insertPolicy" >
+      <enum>QComboBox::NoInsert</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0" colspan="3" >
+    <widget class="Line" name="line_2" >
+     <property name="orientation" >
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>c2bComboBox</class>
+   <extends>QComboBox</extends>
+   <header>c2bComboBox.h</header>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>addQuotes</tabstop>
+  <tabstop>buttonBox</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>c2bRLWebSearchSettings</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>455</x>
+     <y>140</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>157</x>
+     <y>161</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>c2bRLWebSearchSettings</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>455</x>
+     <y>146</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>286</x>
+     <y>161</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

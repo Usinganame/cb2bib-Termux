@@ -1,0 +1,1975 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <author>Pere Constans</author>
+ <class>c2bConfigure</class>
+ <widget class="QDialog" name="c2bConfigure">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1184</width>
+    <height>775</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Configure - cb2Bib</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_4">
+   <item row="0" column="0" colspan="3">
+    <widget class="Line" name="line_4">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QListWidget" name="contentsWidget">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>200</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="cursor" stdset="0">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="mouseTracking">
+      <bool>true</bool>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::NoSelection</enum>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectColumns</enum>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>32</height>
+      </size>
+     </property>
+     <property name="movement">
+      <enum>QListView::Static</enum>
+     </property>
+     <property name="spacing">
+      <number>5</number>
+     </property>
+     <property name="viewMode">
+      <enum>QListView::ListMode</enum>
+     </property>
+     <property name="modelColumn">
+      <number>0</number>
+     </property>
+     <property name="uniformItemSizes">
+      <bool>true</bool>
+     </property>
+     <item>
+      <property name="text">
+       <string>Annote</string>
+      </property>
+      <property name="icon">
+       <iconset resource="cb2bib.qrc">
+        <normaloff>:/icons/icons/annote.png</normaloff>:/icons/icons/annote.png</iconset>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>BibTeX</string>
+      </property>
+      <property name="icon">
+       <iconset resource="cb2bib.qrc">
+        <normaloff>:/icons/icons/configure_bibtex.png</normaloff>:/icons/icons/configure_bibtex.png</iconset>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Clipboard</string>
+      </property>
+      <property name="icon">
+       <iconset resource="cb2bib.qrc">
+        <normaloff>:/icons/icons/configure_clipboard.png</normaloff>:/icons/icons/configure_clipboard.png</iconset>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Documents</string>
+      </property>
+      <property name="icon">
+       <iconset resource="cb2bib.qrc">
+        <normaloff>:/icons/icons/configure_documents.png</normaloff>:/icons/icons/configure_documents.png</iconset>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Files</string>
+      </property>
+      <property name="icon">
+       <iconset resource="cb2bib.qrc">
+        <normaloff>:/icons/icons/configure_files.png</normaloff>:/icons/icons/configure_files.png</iconset>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Fonts</string>
+      </property>
+      <property name="icon">
+       <iconset resource="cb2bib.qrc">
+        <normaloff>:/icons/icons/configure_fonts.png</normaloff>:/icons/icons/configure_fonts.png</iconset>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Network</string>
+      </property>
+      <property name="icon">
+       <iconset resource="cb2bib.qrc">
+        <normaloff>:/icons/icons/configure_network.png</normaloff>:/icons/icons/configure_network.png</iconset>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Shortcuts</string>
+      </property>
+      <property name="icon">
+       <iconset resource="cb2bib.qrc">
+        <normaloff>:/icons/icons/configure_shortcuts.png</normaloff>:/icons/icons/configure_shortcuts.png</iconset>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Utilities</string>
+      </property>
+      <property name="icon">
+       <iconset resource="cb2bib.qrc">
+        <normaloff>:/icons/icons/configure_utilities.png</normaloff>:/icons/icons/configure_utilities.png</iconset>
+      </property>
+     </item>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="Line" name="line_3">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="2">
+    <widget class="QStackedWidget" name="pagesWidget">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="Annote">
+      <layout class="QGridLayout">
+       <property name="margin">
+        <number>1</number>
+       </property>
+       <item row="0" column="0">
+        <widget class="QGroupBox" name="groupBox_21">
+         <property name="title">
+          <string>Annote Cascading Style Sheet (CSS)</string>
+         </property>
+         <layout class="QGridLayout">
+          <item row="0" column="0">
+           <widget class="c2bLineEdit" name="AnnoteCssFile">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QToolButton" name="AnnoteCssDir">
+            <property name="statusTip">
+             <string>Select Annote CSS file</string>
+            </property>
+            <property name="icon">
+             <iconset resource="cb2bib.qrc">
+              <normaloff>:/icons/icons/mimeFolder.png</normaloff>:/icons/icons/mimeFolder.png</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QGroupBox" name="groupBox_22">
+         <property name="title">
+          <string>MathJax Header</string>
+         </property>
+         <layout class="QGridLayout">
+          <item row="0" column="0">
+           <widget class="c2bLineEdit" name="MathJaxHeaderFile">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QToolButton" name="MathJaxDir">
+            <property name="statusTip">
+             <string>Select MathJax header file</string>
+            </property>
+            <property name="icon">
+             <iconset resource="cb2bib.qrc">
+              <normaloff>:/icons/icons/mimeFolder.png</normaloff>:/icons/icons/mimeFolder.png</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QGroupBox" name="groupBox_23">
+         <property name="title">
+          <string>HTML Output</string>
+         </property>
+         <layout class="QGridLayout">
+          <item row="0" column="0">
+           <widget class="QCheckBox" name="IncludeCSS">
+            <property name="text">
+             <string>Include CSS in HTML</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QCheckBox" name="UseRelativeLinks">
+            <property name="text">
+             <string>Use relative links</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <spacer>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QGroupBox" name="AnnoteViewerFont">
+         <property name="title">
+          <string>Annote Viewer Font</string>
+         </property>
+         <layout class="QGridLayout">
+          <item row="0" column="0">
+           <widget class="QLabel" name="textLabel3_9">
+            <property name="text">
+             <string>Family</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QFontComboBox" name="af_familycombo">
+            <property name="duplicatesEnabled">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="textLabel3_10">
+            <property name="text">
+             <string>Size</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QComboBox" name="af_psizecombo">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="editable">
+             <bool>true</bool>
+            </property>
+            <property name="duplicatesEnabled">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QGroupBox" name="AnnoteViewerFixedFont">
+         <property name="title">
+          <string>Annote Viewer Fixed Font</string>
+         </property>
+         <layout class="QGridLayout">
+          <item row="0" column="0">
+           <widget class="QLabel" name="textLabel3_6">
+            <property name="text">
+             <string>Family</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QFontComboBox" name="aff_familycombo">
+            <property name="duplicatesEnabled">
+             <bool>false</bool>
+            </property>
+            <property name="fontFilters">
+             <set>QFontComboBox::MonospacedFonts</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="textLabel3_5">
+            <property name="text">
+             <string>Size</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QComboBox" name="aff_psizecombo">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="editable">
+             <bool>true</bool>
+            </property>
+            <property name="duplicatesEnabled">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <spacer name="spacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>41</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="BibTeX">
+      <layout class="QGridLayout" name="gridLayout_0">
+       <property name="margin">
+        <number>1</number>
+       </property>
+       <item row="0" column="0" colspan="4">
+        <widget class="QGroupBox" name="groupBox_11">
+         <property name="title">
+          <string>Cite ID Pattern</string>
+         </property>
+         <layout class="QGridLayout">
+          <property name="margin">
+           <number>9</number>
+          </property>
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="c2bIdPatternLineEdit" name="CiteIdPattern">
+            <property name="statusTip">
+             <string>Right click to edit pattern placeholders</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QGroupBox" name="groupBox_9">
+         <property name="title">
+          <string>Author and Editor Format</string>
+         </property>
+         <layout class="QGridLayout">
+          <property name="margin">
+           <number>9</number>
+          </property>
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <item row="0" column="2">
+           <spacer>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="1">
+           <widget class="QRadioButton" name="UseFullNames">
+            <property name="text">
+             <string>F&amp;ull Name</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="UseAbbreviatedNames">
+            <property name="text">
+             <string>Abbrevia&amp;ted</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="1" colspan="2">
+        <widget class="QGroupBox" name="groupBox_10">
+         <property name="title">
+          <string>Journal Format</string>
+         </property>
+         <layout class="QGridLayout">
+          <property name="margin">
+           <number>9</number>
+          </property>
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <item row="0" column="1">
+           <widget class="QRadioButton" name="SetJournalsToFullname">
+            <property name="text">
+             <string>Full Name</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="SetJournalsToAbbreviated">
+            <property name="text">
+             <string>Abbreviated</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <spacer>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Expanding</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>95</width>
+              <height>31</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="QGroupBox" name="PageNumberSeparatorBox">
+         <property name="title">
+          <string>Number Separator</string>
+         </property>
+         <layout class="QGridLayout">
+          <property name="margin">
+           <number>9</number>
+          </property>
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="c2bLineEdit" name="PageNumberSeparator">
+            <property name="statusTip">
+             <string>Keep empty for default dash. Blank spaces count</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="2" column="0" colspan="4">
+        <widget class="QGroupBox" name="groupBox_24">
+         <property name="title">
+          <string>Cite Command Pattern</string>
+         </property>
+         <layout class="QGridLayout" name="_5">
+          <property name="margin">
+           <number>9</number>
+          </property>
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="c2bCitePatternLineEedit" name="CiteCommandPattern"/>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="3" column="0" colspan="4">
+        <widget class="QGroupBox" name="groupBox_12">
+         <property name="title">
+          <string>LaTeX Conversions</string>
+         </property>
+         <layout class="QGridLayout">
+          <property name="margin">
+           <number>9</number>
+          </property>
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <item row="0" column="3">
+           <spacer>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Expanding</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>182</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="2">
+           <widget class="QCheckBox" name="PostprocessMonth">
+            <property name="text">
+             <string>Postprocess 'month'</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QCheckBox" name="UseDoubleBraces">
+            <property name="text">
+             <string>Set 'title' in double braces</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QCheckBox" name="ConvertReferenceToLaTeX">
+            <property name="text">
+             <string>Convert entry strings to LaTe&amp;X</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="4" column="0" colspan="2">
+        <widget class="QGroupBox" name="groupBox_13">
+         <property name="title">
+          <string>Reference Extraction</string>
+         </property>
+         <layout class="QGridLayout">
+          <property name="margin">
+           <number>9</number>
+          </property>
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="QCheckBox" name="DoHeuristicGuess">
+            <property name="text">
+             <string>Tr&amp;y Heuristic Guess if recognition fails</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="4" column="2" colspan="2">
+        <widget class="QGroupBox" name="groupBox_19">
+         <property name="title">
+          <string>Reference Check</string>
+         </property>
+         <layout class="QGridLayout" name="_3">
+          <property name="margin">
+           <number>9</number>
+          </property>
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="QCheckBox" name="CheckRepeatedOnSave">
+            <property name="text">
+             <string>Check Repeated On Save</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="5" column="0" colspan="4">
+        <widget class="QGroupBox" name="groupBox_14">
+         <property name="title">
+          <string>External BibTeX Postprocessing</string>
+         </property>
+         <layout class="QGridLayout">
+          <property name="margin">
+           <number>9</number>
+          </property>
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <item row="1" column="0">
+           <widget class="QLabel" name="textLabel2_2_5">
+            <property name="text">
+             <string>Aguments:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QToolButton" name="PostprocessBibTeXDir">
+            <property name="statusTip">
+             <string>Select external postprocess tool</string>
+            </property>
+            <property name="icon">
+             <iconset resource="cb2bib.qrc">
+              <normaloff>:/icons/icons/mimeFolder.png</normaloff>:/icons/icons/mimeFolder.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="textLabel1_2_4">
+            <property name="text">
+             <string>Command:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="textLabel2_2_3_2">
+            <property name="text">
+             <string>Output Extension:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="c2bLineEdit" name="PostprocessBibTeXBin">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1" colspan="2">
+           <widget class="c2bLineEdit" name="PostprocessBibTeXArg">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1" colspan="2">
+           <widget class="c2bLineEdit" name="PostprocessBibTeXExt">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <spacer>
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="Clipboard">
+      <layout class="QGridLayout">
+       <property name="margin">
+        <number>1</number>
+       </property>
+       <item row="0" column="0">
+        <widget class="QGroupBox" name="groupBox_4">
+         <property name="title">
+          <string>Clipboard Preprocessing</string>
+         </property>
+         <layout class="QGridLayout">
+          <property name="margin">
+           <number>9</number>
+          </property>
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="QCheckBox" name="FindReplaceInput">
+            <property name="text">
+             <string>Replace/Remove from Input Stream</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <layout class="QGridLayout">
+            <property name="margin">
+             <number>0</number>
+            </property>
+            <property name="spacing">
+             <number>6</number>
+            </property>
+            <item row="2" column="1">
+             <widget class="QPushButton" name="FREdit">
+              <property name="text">
+               <string>&amp;Edit</string>
+              </property>
+              <property name="shortcut">
+               <string>Alt+E</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <spacer>
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="3" column="1">
+             <widget class="QPushButton" name="FRDelete">
+              <property name="text">
+               <string>&amp;Delete</string>
+              </property>
+              <property name="shortcut">
+               <string>Alt+D</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0" rowspan="4">
+             <widget class="QTreeWidget" name="FindReplaceList">
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <property name="editTriggers">
+               <set>QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked</set>
+              </property>
+              <property name="tabKeyNavigation">
+               <bool>true</bool>
+              </property>
+              <property name="selectionMode">
+               <enum>QAbstractItemView::SingleSelection</enum>
+              </property>
+              <property name="rootIsDecorated">
+               <bool>false</bool>
+              </property>
+              <property name="uniformRowHeights">
+               <bool>true</bool>
+              </property>
+              <property name="sortingEnabled">
+               <bool>true</bool>
+              </property>
+              <property name="columnCount">
+               <number>3</number>
+              </property>
+              <column>
+               <property name="text">
+                <string>Find</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Replace</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Description</string>
+               </property>
+              </column>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QPushButton" name="FRNew">
+              <property name="text">
+               <string>&amp;New</string>
+              </property>
+              <property name="shortcut">
+               <string>Alt+N</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QGroupBox" name="groupBox_5">
+         <property name="title">
+          <string>External Clipboard Preparsing Command</string>
+         </property>
+         <layout class="QGridLayout">
+          <property name="margin">
+           <number>9</number>
+          </property>
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <item row="1" column="0" colspan="3">
+           <layout class="QHBoxLayout">
+            <property name="spacing">
+             <number>6</number>
+            </property>
+            <property name="margin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="c2bLineEdit" name="PreparserBin">
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QToolButton" name="PreparserDir">
+              <property name="statusTip">
+               <string>Select external parser tool</string>
+              </property>
+              <property name="icon">
+               <iconset resource="cb2bib.qrc">
+                <normaloff>:/icons/icons/mimeFolder.png</normaloff>:/icons/icons/mimeFolder.png</iconset>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="0" column="0">
+           <widget class="QCheckBox" name="PreparserAutomatic">
+            <property name="text">
+             <string>Perform always, as part of an automatic extraction</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QCheckBox" name="PreparserShowLog">
+            <property name="text">
+             <string>Do not show log</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <spacer>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QCheckBox" name="AddMetadata">
+         <property name="text">
+          <string>Add document metadata to Input Stream</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QGroupBox" name="PreAppendMetadata">
+         <property name="title">
+          <string/>
+         </property>
+         <layout class="QGridLayout">
+          <property name="margin">
+           <number>9</number>
+          </property>
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <item row="0" column="2">
+           <spacer>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="1">
+           <widget class="QRadioButton" name="Append">
+            <property name="text">
+             <string>Append</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="Prepend">
+            <property name="text">
+             <string>Prepend</string>
+            </property>
+            <property name="shortcut">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="Documents">
+      <layout class="QGridLayout">
+       <property name="margin">
+        <number>1</number>
+       </property>
+       <item row="0" column="0">
+        <widget class="QCheckBox" name="MovePdf">
+         <property name="text">
+          <string>Rename and Copy/Move document files</string>
+         </property>
+         <property name="shortcut">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QGroupBox" name="RenameCopyMovePdf">
+         <property name="title">
+          <string>Document Options</string>
+         </property>
+         <layout class="QGridLayout">
+          <property name="margin">
+           <number>9</number>
+          </property>
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Documents Directory:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QCheckBox" name="InsertMetadata">
+            <property name="text">
+             <string>Insert BibTeX metadata to document files</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QCheckBox" name="RelativePdfDirectory">
+            <property name="text">
+             <string>Set directory relative to the BibTeX File Directory</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <layout class="QHBoxLayout">
+            <property name="spacing">
+             <number>6</number>
+            </property>
+            <property name="margin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="c2bLineEdit" name="PdfDirectory">
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QToolButton" name="PdfDir">
+              <property name="statusTip">
+               <string>Select PDF directory</string>
+              </property>
+              <property name="icon">
+               <iconset resource="cb2bib.qrc">
+                <normaloff>:/icons/icons/mimeFolder.png</normaloff>:/icons/icons/mimeFolder.png</iconset>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="0" column="0">
+           <widget class="QGroupBox" name="CopyMovePdf">
+            <property name="title">
+             <string/>
+            </property>
+            <layout class="QGridLayout">
+             <property name="margin">
+              <number>9</number>
+             </property>
+             <property name="spacing">
+              <number>6</number>
+             </property>
+             <item row="0" column="2">
+              <spacer>
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="0" column="1">
+              <widget class="QRadioButton" name="Move">
+               <property name="text">
+                <string>Move (local so&amp;urce files)</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QRadioButton" name="Copy">
+               <property name="text">
+                <string>Copy</string>
+               </property>
+               <property name="shortcut">
+                <string/>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QGroupBox" name="DocumentIdPatternBox">
+         <property name="title">
+          <string>Document ID Pattern</string>
+         </property>
+         <layout class="QGridLayout" name="_2">
+          <property name="margin">
+           <number>9</number>
+          </property>
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="c2bIdPatternLineEdit" name="DocumentIdPattern">
+            <property name="statusTip">
+             <string>Right click to edit pattern placeholders</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QGroupBox" name="groupBox_18">
+         <property name="title">
+          <string>ExifTool Metadata writer</string>
+         </property>
+         <layout class="QGridLayout">
+          <property name="margin">
+           <number>9</number>
+          </property>
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <item row="0" column="1">
+           <widget class="c2bLineEdit" name="ExifToolBin">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QToolButton" name="ExifToolDir">
+            <property name="statusTip">
+             <string>Select ExifTool executable</string>
+            </property>
+            <property name="icon">
+             <iconset resource="cb2bib.qrc">
+              <normaloff>:/icons/icons/mimeFolder.png</normaloff>:/icons/icons/mimeFolder.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="textLabel1_6">
+            <property name="text">
+             <string>Command:</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <spacer>
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>16</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="Files">
+      <layout class="QGridLayout">
+       <property name="margin">
+        <number>1</number>
+       </property>
+       <item row="0" column="0">
+        <widget class="QGroupBox" name="groupBox_3">
+         <property name="title">
+          <string>Journal Abbreviation List File</string>
+         </property>
+         <layout class="QGridLayout">
+          <item row="0" column="0">
+           <widget class="c2bLineEdit" name="JournalFile">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QToolButton" name="JournalDir">
+            <property name="statusTip">
+             <string>Select journal abbreviation file</string>
+            </property>
+            <property name="icon">
+             <iconset resource="cb2bib.qrc">
+              <normaloff>:/icons/icons/mimeFolder.png</normaloff>:/icons/icons/mimeFolder.png</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QGroupBox" name="groupBox_2">
+         <property name="title">
+          <string>Regular Expression List File</string>
+         </property>
+         <layout class="QGridLayout">
+          <item row="0" column="0">
+           <widget class="c2bLineEdit" name="RegularExpressionFile">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QToolButton" name="RegularExpressionDir">
+            <property name="statusTip">
+             <string>Select regular expression file</string>
+            </property>
+            <property name="icon">
+             <iconset resource="cb2bib.qrc">
+              <normaloff>:/icons/icons/mimeFolder.png</normaloff>:/icons/icons/mimeFolder.png</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QGroupBox" name="groupBox_16">
+         <property name="title">
+          <string>Bookmarks and Network Query Info File</string>
+         </property>
+         <layout class="QGridLayout">
+          <item row="0" column="0">
+           <widget class="c2bLineEdit" name="NetworkFile">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QToolButton" name="NetworkDir">
+            <property name="statusTip">
+             <string>Select network informantion file</string>
+            </property>
+            <property name="icon">
+             <iconset resource="cb2bib.qrc">
+              <normaloff>:/icons/icons/mimeFolder.png</normaloff>:/icons/icons/mimeFolder.png</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QGroupBox" name="groupBox_6">
+         <property name="title">
+          <string>Browser Cascading Style Sheet (CSS)</string>
+         </property>
+         <layout class="QGridLayout">
+          <item row="0" column="0">
+           <widget class="c2bLineEdit" name="BrowserCssFile">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QToolButton" name="BrowserCssDir">
+            <property name="statusTip">
+             <string>Select CSS file</string>
+            </property>
+            <property name="icon">
+             <iconset resource="cb2bib.qrc">
+              <normaloff>:/icons/icons/mimeFolder.png</normaloff>:/icons/icons/mimeFolder.png</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="7" column="0">
+        <spacer>
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>31</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="4" column="0">
+        <widget class="QGroupBox" name="groupBox_20">
+         <property name="title">
+          <string>Part Of Speech (POS) Lexicon</string>
+         </property>
+         <layout class="QGridLayout" name="_4">
+          <item row="0" column="0">
+           <widget class="c2bLineEdit" name="PosLexiconFile">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QToolButton" name="PosLexiconDir">
+            <property name="statusTip">
+             <string>Select POS lexicon file</string>
+            </property>
+            <property name="icon">
+             <iconset resource="cb2bib.qrc">
+              <normaloff>:/icons/icons/mimeFolder.png</normaloff>:/icons/icons/mimeFolder.png</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QGroupBox" name="groupBox_7">
+         <property name="title">
+          <string>Search In Files Cache Directory</string>
+         </property>
+         <layout class="QGridLayout">
+          <item row="0" column="0">
+           <widget class="c2bLineEdit" name="CacheDirectory">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QToolButton" name="CacheDir">
+            <property name="statusTip">
+             <string>Select cache directory</string>
+            </property>
+            <property name="icon">
+             <iconset resource="cb2bib.qrc">
+              <normaloff>:/icons/icons/mimeFolder.png</normaloff>:/icons/icons/mimeFolder.png</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="Fonts">
+      <layout class="QGridLayout">
+       <property name="margin">
+        <number>1</number>
+       </property>
+       <item row="0" column="0">
+        <widget class="QGroupBox" name="groupBox">
+         <property name="title">
+          <string/>
+         </property>
+         <layout class="QGridLayout">
+          <item row="0" column="0">
+           <widget class="QLabel" name="textLabel3">
+            <property name="text">
+             <string>Family</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QFontComboBox" name="familycombo">
+            <property name="duplicatesEnabled">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="textLabel3_2">
+            <property name="text">
+             <string>Size</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QComboBox" name="psizecombo">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="editable">
+             <bool>true</bool>
+            </property>
+            <property name="duplicatesEnabled">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0" colspan="2">
+           <widget class="QLineEdit" name="samplelineedit">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>Sample Text</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignHCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0" colspan="2">
+           <widget class="QTreeWidget" name="ColorList">
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <property name="tabKeyNavigation">
+             <bool>true</bool>
+            </property>
+            <property name="rootIsDecorated">
+             <bool>false</bool>
+            </property>
+            <property name="uniformRowHeights">
+             <bool>true</bool>
+            </property>
+            <property name="sortingEnabled">
+             <bool>true</bool>
+            </property>
+            <property name="columnCount">
+             <number>1</number>
+            </property>
+            <column>
+             <property name="text">
+              <string>Context Colors</string>
+             </property>
+            </column>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="Network">
+      <layout class="QGridLayout" name="gridLayout_2">
+       <property name="margin">
+        <number>1</number>
+       </property>
+       <item row="0" column="0">
+        <widget class="QCheckBox" name="FmClient">
+         <property name="text">
+          <string>Use E&amp;xternal Network Client</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QGroupBox" name="clientGroupBox">
+         <property name="title">
+          <string/>
+         </property>
+         <layout class="QGridLayout">
+          <item row="0" column="0">
+           <widget class="QLabel" name="textLabel1_2_3">
+            <property name="text">
+             <string>Copy:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="c2bLineEdit" name="FmClientCopyBin">
+            <property name="text">
+             <string>kfmclient</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QToolButton" name="FmClientCopyDir">
+            <property name="statusTip">
+             <string>Select external copy executable</string>
+            </property>
+            <property name="icon">
+             <iconset resource="cb2bib.qrc">
+              <normaloff>:/icons/icons/mimeFolder.png</normaloff>:/icons/icons/mimeFolder.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="3">
+           <widget class="QLabel" name="textLabel2_2_3">
+            <property name="text">
+             <string>Copy Aguments:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="4">
+           <widget class="c2bLineEdit" name="FmClientCopyArg">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="textLabel1_2_2_4">
+            <property name="text">
+             <string>Move:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="c2bLineEdit" name="FmClientMoveBin">
+            <property name="text">
+             <string>kfmclient</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QToolButton" name="FmClientMoveDir">
+            <property name="statusTip">
+             <string>Select external move executable</string>
+            </property>
+            <property name="icon">
+             <iconset resource="cb2bib.qrc">
+              <normaloff>:/icons/icons/mimeFolder.png</normaloff>:/icons/icons/mimeFolder.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="3">
+           <widget class="QLabel" name="textLabel2_2_2_3">
+            <property name="text">
+             <string>Move Aguments:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="4">
+           <widget class="c2bLineEdit" name="FmClientMoveArg">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QCheckBox" name="UseProxy">
+         <property name="text">
+          <string>Use Proxy</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QGroupBox" name="proxyGroupBox">
+         <property name="title">
+          <string/>
+         </property>
+         <property name="checkable">
+          <bool>false</bool>
+         </property>
+         <property name="checked">
+          <bool>false</bool>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <item row="0" column="0">
+           <widget class="QLabel" name="textLabel1_2_5">
+            <property name="text">
+             <string>Host:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="c2bLineEdit" name="ProxyHostName">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QLabel" name="textLabel1_2_2_5">
+            <property name="text">
+             <string>Port:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="3">
+           <widget class="c2bLineEdit" name="ProxyPort">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="4">
+           <widget class="QLabel" name="textLabel1_2_2_6">
+            <property name="text">
+             <string>Type:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="5">
+           <widget class="QComboBox" name="ProxyType">
+            <item>
+             <property name="text">
+              <string>Http</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Socks5</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QGroupBox" name="groupBox_8">
+         <property name="title">
+          <string>Queries</string>
+         </property>
+         <layout class="QGridLayout">
+          <property name="margin">
+           <number>9</number>
+          </property>
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <item row="1" column="0">
+           <widget class="QCheckBox" name="AutomaticPdfDownload">
+            <property name="text">
+             <string>Download document if available</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QCheckBox" name="KeepTmpNQFiles">
+            <property name="text">
+             <string>&amp;Keep Query temporary files (Debug Only)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QCheckBox" name="AutomaticQuery">
+            <property name="text">
+             <string>Perform Network Queries after automatic reference extractions</string>
+            </property>
+            <property name="shortcut">
+             <string>Alt+Q</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <spacer>
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>16</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="Shortcuts">
+      <layout class="QGridLayout" name="gridLayout_6">
+       <property name="margin">
+        <number>1</number>
+       </property>
+       <item row="0" column="0">
+        <widget class="QGroupBox" name="cb2BibScGroupBox">
+         <property name="title">
+          <string>Main panel</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_1">
+          <item row="0" column="0">
+           <widget class="c2bShortcutWidget" name="cb2BibShortcuts" native="true"/>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QGroupBox" name="EditorScGroupBox">
+         <property name="title">
+          <string>Editor and reference list</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_5">
+          <item row="0" column="0">
+           <widget class="c2bShortcutWidget" name="EditorShortcuts" native="true"/>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>398</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="Utilities">
+      <layout class="QGridLayout">
+       <property name="margin">
+        <number>1</number>
+       </property>
+       <item row="0" column="0">
+        <widget class="QGroupBox" name="groupBox_15">
+         <property name="title">
+          <string>PDF Import: To plain text converter</string>
+         </property>
+         <layout class="QGridLayout">
+          <property name="margin">
+           <number>9</number>
+          </property>
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <item row="0" column="2">
+           <widget class="QToolButton" name="PdfImportPdf2TextDir">
+            <property name="statusTip">
+             <string>Select external convert tool</string>
+            </property>
+            <property name="icon">
+             <iconset resource="cb2bib.qrc">
+              <normaloff>:/icons/icons/mimeFolder.png</normaloff>:/icons/icons/mimeFolder.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="textLabel2_6">
+            <property name="text">
+             <string>Aguments:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="textLabel1_4">
+            <property name="text">
+             <string>Command:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="c2bLineEdit" name="PdfImportPdf2TextBin">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1" colspan="2">
+           <widget class="c2bLineEdit" name="PdfImportPdf2TextArg">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QGroupBox" name="groupBox_17">
+         <property name="title">
+          <string>BibTeX search: To plain text converter</string>
+         </property>
+         <layout class="QGridLayout">
+          <property name="margin">
+           <number>9</number>
+          </property>
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <item row="0" column="2">
+           <widget class="QToolButton" name="BibSearcherPdf2TextDir">
+            <property name="statusTip">
+             <string>Select external convert tool</string>
+            </property>
+            <property name="icon">
+             <iconset resource="cb2bib.qrc">
+              <normaloff>:/icons/icons/mimeFolder.png</normaloff>:/icons/icons/mimeFolder.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="textLabel2_7">
+            <property name="text">
+             <string>Aguments:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="textLabel1_5">
+            <property name="text">
+             <string>Command:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="c2bLineEdit" name="BibSearcherPdf2TextBin">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1" colspan="2">
+           <widget class="c2bLineEdit" name="BibSearcherPdf2TextArg">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <spacer>
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item row="2" column="0" colspan="3">
+    <widget class="Line" name="line_2">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0" colspan="3">
+    <widget class="QStatusBar" name="statusBar">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="sizeGripEnabled">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0" colspan="3">
+    <widget class="Line" name="line">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0" colspan="3">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Apply|QDialogButtonBox::Cancel|QDialogButtonBox::Help|QDialogButtonBox::Save</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>c2bLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>c2bLineEdit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>c2bIdPatternLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>c2bIdPatternLineEdit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>c2bCitePatternLineEedit</class>
+   <extends>QLineEdit</extends>
+   <header>c2bCitePatternLineEedit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>c2bShortcutWidget</class>
+   <extends>QWidget</extends>
+   <header>c2bShortcutWidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>buttonBox</tabstop>
+ </tabstops>
+ <resources>
+  <include location="cb2bib.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>c2bConfigure</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>427</x>
+     <y>578</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>612</x>
+     <y>561</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>c2bConfigure</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>385</x>
+     <y>578</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>342</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>FmClient</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>clientGroupBox</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>549</x>
+     <y>46</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>549</x>
+     <y>106</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseProxy</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>proxyGroupBox</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>235</x>
+     <y>162</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>276</x>
+     <y>190</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
