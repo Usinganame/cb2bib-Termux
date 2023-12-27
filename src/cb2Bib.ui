@@ -1,0 +1,977 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <author>Pere Constans</author>
+ <class>cb2Bib</class>
+ <widget class="QMainWindow" name="cb2Bib">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1432</width>
+    <height>820</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>cb2Bib</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout">
+    <property name="margin">
+     <number>6</number>
+    </property>
+    <property name="spacing">
+     <number>6</number>
+    </property>
+    <item row="5" column="0" colspan="3">
+     <layout class="QHBoxLayout">
+      <property name="spacing">
+       <number>6</number>
+      </property>
+      <property name="margin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QPushButton" name="ViewAboutB">
+        <property name="toolTip">
+         <string/>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="cb2bib.qrc">
+          <normaloff>:/icons/icons/cb2bib.png</normaloff>:/icons/icons/cb2bib.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>32</width>
+          <height>32</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="ConfigureB">
+        <property name="toolTip">
+         <string/>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="cb2bib.qrc">
+          <normaloff>:/icons/icons/configure.png</normaloff>:/icons/icons/configure.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>32</width>
+          <height>32</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="SearchInFilesB">
+        <property name="toolTip">
+         <string/>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="cb2bib.qrc">
+          <normaloff>:/icons/icons/tex.png</normaloff>:/icons/icons/tex.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>32</width>
+          <height>32</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="PdfImportB">
+        <property name="toolTip">
+         <string/>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="cb2bib.qrc">
+          <normaloff>:/icons/icons/pdf.png</normaloff>:/icons/icons/pdf.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>32</width>
+          <height>32</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="ExitB">
+        <property name="toolTip">
+         <string/>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="cb2bib.qrc">
+          <normaloff>:/icons/icons/exit.png</normaloff>:/icons/icons/exit.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>32</width>
+          <height>32</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Expanding</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>205</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="ConnectB">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="cb2bib.qrc">
+          <normaloff>:/icons/icons/connect_established.png</normaloff>:/icons/icons/connect_established.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>32</width>
+          <height>32</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="MakeNetworkQueryB">
+        <property name="toolTip">
+         <string/>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="cb2bib.qrc">
+          <normaloff>:/icons/icons/package_network.png</normaloff>:/icons/icons/package_network.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>32</width>
+          <height>32</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="ViewBibB">
+        <property name="toolTip">
+         <string/>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="cb2bib.qrc">
+          <normaloff>:/icons/icons/viewbib.png</normaloff>:/icons/icons/viewbib.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>32</width>
+          <height>32</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="AddBibB">
+        <property name="toolTip">
+         <string/>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="cb2bib.qrc">
+          <normaloff>:/icons/icons/filesaveas.png</normaloff>:/icons/icons/filesaveas.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>32</width>
+          <height>32</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="EditBibTeXB">
+        <property name="toolTip">
+         <string/>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="cb2bib.qrc">
+          <normaloff>:/icons/icons/edit.png</normaloff>:/icons/icons/edit.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>32</width>
+          <height>32</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="1" column="0" colspan="3">
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <widget class="QWidget" name="widget"/>
+     </widget>
+    </item>
+    <item row="3" column="2">
+     <widget class="QToolButton" name="BibTeXDir">
+      <property name="toolTip">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="cb2bib.qrc">
+        <normaloff>:/icons/icons/mimeFolder.png</normaloff>:/icons/icons/mimeFolder.png</iconset>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="c2bComboBox" name="bibtexfile">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="editable">
+       <bool>true</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="TextLabel31">
+      <property name="text">
+       <string>Add to:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0" colspan="3">
+     <widget class="Line" name="line_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0" colspan="3">
+     <widget class="Line" name="line">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0" colspan="3">
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="tabPosition">
+       <enum>QTabWidget::South</enum>
+      </property>
+      <property name="tabShape">
+       <enum>QTabWidget::Rounded</enum>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab">
+       <attribute name="title">
+        <string>Main</string>
+       </attribute>
+       <layout class="QGridLayout">
+        <property name="margin">
+         <number>9</number>
+        </property>
+        <property name="spacing">
+         <number>6</number>
+        </property>
+        <item row="6" column="0">
+         <widget class="QLabel" name="textLabel1">
+          <property name="text">
+           <string>Keywords</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="0">
+         <widget class="QLabel" name="textLabel2">
+          <property name="text">
+           <string>File</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="5" colspan="3">
+         <widget class="c2bComboBox" name="typecombo">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="editable">
+           <bool>true</bool>
+          </property>
+          <property name="duplicatesEnabled">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="4">
+         <widget class="QLabel" name="textLabel3">
+          <property name="text">
+           <string>Type</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="6">
+         <widget class="QLabel" name="textLabel4">
+          <property name="text">
+           <string>Year</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="4">
+         <widget class="QLabel" name="textLabel5">
+          <property name="text">
+           <string>Number</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="2">
+         <widget class="QLabel" name="textLabel6">
+          <property name="text">
+           <string>Volume</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="textLabel7">
+          <property name="text">
+           <string>Abstract</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="textLabel8">
+          <property name="text">
+           <string>Pages</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="textLabel9">
+          <property name="text">
+           <string>Journal</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="textLabel10">
+          <property name="text">
+           <string>Author</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="textLabel11">
+          <property name="text">
+           <string>Title</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="textLabel12">
+          <property name="text">
+           <string>CITEID</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1" colspan="3">
+         <widget class="c2bLineEdit" name="id">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Ignored" vsizetype="Ignored">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="acceptDrops">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1" colspan="7">
+         <widget class="c2bLineEdit" name="title">
+          <property name="acceptDrops">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1" colspan="7">
+         <widget class="c2bLineEdit" name="author">
+          <property name="acceptDrops">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1" colspan="7">
+         <widget class="c2bLineEdit" name="journal">
+          <property name="acceptDrops">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="c2bLineEdit" name="pages">
+          <property name="acceptDrops">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="3">
+         <widget class="c2bLineEdit" name="volume">
+          <property name="acceptDrops">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="5">
+         <widget class="c2bLineEdit" name="number">
+          <property name="acceptDrops">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="7">
+         <widget class="c2bLineEdit" name="year">
+          <property name="acceptDrops">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1" colspan="7">
+         <widget class="c2bLineEdit" name="abstract">
+          <property name="acceptDrops">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="1" colspan="7">
+         <widget class="c2bLineEdit" name="keywords">
+          <property name="acceptDrops">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="1" colspan="7">
+         <widget class="c2bLineEdit" name="file">
+          <property name="acceptDrops">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_2">
+       <attribute name="title">
+        <string>Other Fields</string>
+       </attribute>
+       <layout class="QGridLayout">
+        <property name="margin">
+         <number>9</number>
+        </property>
+        <property name="spacing">
+         <number>6</number>
+        </property>
+        <item row="0" column="0">
+         <widget class="QLabel" name="textLabel13">
+          <property name="text">
+           <string>Book Title</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="textLabel14">
+          <property name="text">
+           <string>Annote</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="4">
+         <widget class="QLabel" name="textLabel15">
+          <property name="text">
+           <string>DOI</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="2">
+         <widget class="QLabel" name="textLabel16">
+          <property name="text">
+           <string>Chapter</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="textLabel17">
+          <property name="text">
+           <string>Address</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="4">
+         <widget class="QLabel" name="textLabel18">
+          <property name="text">
+           <string>Eprint</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="2">
+         <widget class="QLabel" name="textLabel19">
+          <property name="text">
+           <string>Editor</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="textLabel20">
+          <property name="text">
+           <string>Edition</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="4">
+         <widget class="QLabel" name="textLabel21">
+          <property name="text">
+           <string>ISSN</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="2">
+         <widget class="QLabel" name="textLabel22">
+          <property name="text">
+           <string>ISBN</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="textLabel23">
+          <property name="text">
+           <string>Institution</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="4">
+         <widget class="QLabel" name="textLabel24">
+          <property name="text">
+           <string>Organization</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="2">
+         <widget class="QLabel" name="textLabel25">
+          <property name="text">
+           <string>Note</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="textLabel26">
+          <property name="text">
+           <string>Month</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="4">
+         <widget class="QLabel" name="textLabel27">
+          <property name="text">
+           <string>Series</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="2">
+         <widget class="QLabel" name="textLabel28">
+          <property name="text">
+           <string>School</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="0">
+         <widget class="QLabel" name="textLabel29">
+          <property name="text">
+           <string>Publisher</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="0">
+         <widget class="QLabel" name="textLabel30">
+          <property name="text">
+           <string>URL</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1" colspan="5">
+         <widget class="c2bLineEdit" name="booktitle">
+          <property name="acceptDrops">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1" colspan="5">
+         <widget class="c2bLineEdit" name="annote">
+          <property name="acceptDrops">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="c2bLineEdit" name="address">
+          <property name="acceptDrops">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="c2bLineEdit" name="edition">
+          <property name="acceptDrops">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="c2bLineEdit" name="institution">
+          <property name="acceptDrops">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="c2bLineEdit" name="month">
+          <property name="acceptDrops">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="1">
+         <widget class="c2bLineEdit" name="publisher">
+          <property name="acceptDrops">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="3">
+         <widget class="c2bLineEdit" name="chapter">
+          <property name="acceptDrops">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="3">
+         <widget class="c2bLineEdit" name="editor">
+          <property name="acceptDrops">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="3">
+         <widget class="c2bLineEdit" name="isbn">
+          <property name="acceptDrops">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="3">
+         <widget class="c2bLineEdit" name="note">
+          <property name="acceptDrops">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="3">
+         <widget class="c2bLineEdit" name="school">
+          <property name="acceptDrops">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="5">
+         <widget class="c2bLineEdit" name="doi">
+          <property name="acceptDrops">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="5">
+         <widget class="c2bLineEdit" name="eprint">
+          <property name="acceptDrops">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="5">
+         <widget class="c2bLineEdit" name="issn">
+          <property name="acceptDrops">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="5">
+         <widget class="c2bLineEdit" name="organization">
+          <property name="acceptDrops">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="5">
+         <widget class="c2bLineEdit" name="series">
+          <property name="acceptDrops">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="1" colspan="5">
+         <widget class="c2bLineEdit" name="url">
+          <property name="acceptDrops">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="clearFieldsAction">
+   <property name="text">
+    <string>Clear All Fields</string>
+   </property>
+  </action>
+  <action name="insertRegExpAction">
+   <property name="text">
+    <string>Insert Regular Expression</string>
+   </property>
+   <property name="toolTip">
+    <string>Insert regular expression</string>
+   </property>
+  </action>
+  <action name="editBookmarksAction">
+   <property name="text">
+    <string>Edit Bookmarks</string>
+   </property>
+   <property name="toolTip">
+    <string>Edit bookmarks</string>
+   </property>
+  </action>
+  <action name="editRegExpsAction">
+   <property name="text">
+    <string>Edit Regular Expressions</string>
+   </property>
+   <property name="toolTip">
+    <string>Edit regular expressions</string>
+   </property>
+  </action>
+  <action name="guessFieldsAction">
+   <property name="text">
+    <string>Guess Bibliographic Fields</string>
+   </property>
+   <property name="toolTip">
+    <string>Guess bibliographic fields</string>
+   </property>
+  </action>
+  <action name="postprocessBibTeXAction">
+   <property name="text">
+    <string>Postprocess BibTeX</string>
+   </property>
+  </action>
+  <action name="preparseClipboardAction">
+   <property name="text">
+    <string>Preparse Clipboard</string>
+   </property>
+   <property name="toolTip">
+    <string>Preparse clipboard</string>
+   </property>
+  </action>
+  <action name="startEngineAction">
+   <property name="text">
+    <string>Restart Recognition</string>
+   </property>
+  </action>
+  <action name="viewTaggedClipEditAction">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>View Tagged Clipboard Data</string>
+   </property>
+   <property name="iconText">
+    <string>View Tagged Clipboard Data</string>
+   </property>
+   <property name="toolTip">
+    <string>View tagged clipboard data</string>
+   </property>
+  </action>
+  <action name="openFileDocumentAction">
+   <property name="text">
+    <string>Open Document</string>
+   </property>
+   <property name="toolTip">
+    <string>Open document</string>
+   </property>
+  </action>
+  <action name="editAbbreviationsAction">
+   <property name="text">
+    <string>Edit Journal Abbreviations</string>
+   </property>
+   <property name="toolTip">
+    <string>Edit journal abbreviations</string>
+   </property>
+  </action>
+  <action name="selectFileAction">
+   <property name="text">
+    <string>Select Document File</string>
+   </property>
+   <property name="toolTip">
+    <string>Select document file</string>
+   </property>
+  </action>
+  <action name="openAnnoteAction">
+   <property name="text">
+    <string>Annote Editor</string>
+   </property>
+   <property name="toolTip">
+    <string>Annote Editor</string>
+   </property>
+  </action>
+  <action name="checkRepeatedAction">
+   <property name="text">
+    <string>Check Repeated</string>
+   </property>
+   <property name="toolTip">
+    <string>Check repeated</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>c2bLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>c2bLineEdit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>c2bComboBox</class>
+   <extends>QComboBox</extends>
+   <header>c2bComboBox.h</header>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>id</tabstop>
+  <tabstop>typecombo</tabstop>
+  <tabstop>title</tabstop>
+  <tabstop>author</tabstop>
+  <tabstop>journal</tabstop>
+  <tabstop>pages</tabstop>
+  <tabstop>volume</tabstop>
+  <tabstop>number</tabstop>
+  <tabstop>year</tabstop>
+  <tabstop>abstract</tabstop>
+  <tabstop>keywords</tabstop>
+  <tabstop>file</tabstop>
+  <tabstop>bibtexfile</tabstop>
+  <tabstop>BibTeXDir</tabstop>
+  <tabstop>ViewAboutB</tabstop>
+  <tabstop>ConfigureB</tabstop>
+  <tabstop>SearchInFilesB</tabstop>
+  <tabstop>PdfImportB</tabstop>
+  <tabstop>ExitB</tabstop>
+  <tabstop>ConnectB</tabstop>
+  <tabstop>MakeNetworkQueryB</tabstop>
+  <tabstop>ViewBibB</tabstop>
+  <tabstop>AddBibB</tabstop>
+  <tabstop>EditBibTeXB</tabstop>
+  <tabstop>booktitle</tabstop>
+  <tabstop>annote</tabstop>
+  <tabstop>address</tabstop>
+  <tabstop>edition</tabstop>
+  <tabstop>institution</tabstop>
+  <tabstop>month</tabstop>
+  <tabstop>publisher</tabstop>
+  <tabstop>url</tabstop>
+  <tabstop>chapter</tabstop>
+  <tabstop>editor</tabstop>
+  <tabstop>isbn</tabstop>
+  <tabstop>note</tabstop>
+  <tabstop>school</tabstop>
+  <tabstop>doi</tabstop>
+  <tabstop>eprint</tabstop>
+  <tabstop>issn</tabstop>
+  <tabstop>organization</tabstop>
+  <tabstop>series</tabstop>
+ </tabstops>
+ <resources>
+  <include location="cb2bib.qrc"/>
+ </resources>
+ <connections/>
+</ui>

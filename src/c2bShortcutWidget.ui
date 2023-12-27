@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>c2bShortcutWidget</class>
+ <widget class="QWidget" name="c2bShortcutWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>551</width>
+    <height>29</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <property name="horizontalSpacing">
+    <number>-1</number>
+   </property>
+   <property name="verticalSpacing">
+    <number>0</number>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <item row="0" column="0">
+    <widget class="QComboBox" name="Description"/>
+   </item>
+   <item row="0" column="1">
+    <widget class="c2bShortcutPushButton" name="Shortcut">
+     <property name="text">
+      <string/>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="2">
+    <widget class="QToolButton" name="Clear">
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
+     <property name="statusTip">
+      <string>Clear key sequence</string>
+     </property>
+     <property name="icon">
+      <iconset resource="cb2bib.qrc">
+       <normaloff>:/icons/icons/clear_left.png</normaloff>:/icons/icons/clear_left.png</iconset>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="3">
+    <widget class="QToolButton" name="Reset">
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
+     <property name="statusTip">
+      <string>Reset key sequence to default value</string>
+     </property>
+     <property name="icon">
+      <iconset resource="cb2bib.qrc">
+       <normaloff>:/icons/icons/edit-undo.png</normaloff>:/icons/icons/edit-undo.png</iconset>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>c2bShortcutPushButton</class>
+   <extends>QPushButton</extends>
+   <header>c2bShortcutPushButton.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="cb2bib.qrc"/>
+ </resources>
+ <connections/>
+</ui>
