@@ -1,0 +1,100 @@
+#!/bin/sh
+#-------------------------------------------------------------------------------
+# isi2bib  --  Script to convert ISI format to BibTeX
+# cb2Bib Tools
+#
+# Copyright (C) 2005-2021 by Pere Constans
+# constans@molspaces.com
+#
+# Improvements and modifications:
+# Copyright (C) 2009 by Filippo Rusconi
+# rusconi@mnhn.fr
+#
+# May/June 2009:
+# - Added checks to ensure that the used commands are available on
+#   system.
+# - Make use of mktemp to create a temp directory.
+#
+# See LICENSE file that comes with this distribution
+#
+# Usage: isi2bib input_isi output_bib
+#-------------------------------------------------------------------------------
+# Using isi2xml and xml2bib utilities from:
+# http://bibutils.refbase.org/
+#-------------------------------------------------------------------------------
+
+#-------------------------------------------------------------------------------
+# Init variables
+#-------------------------------------------------------------------------------
+# Modify accordingly
+#isi2xml=/usr/local/bin/isi2xml
+#xml2bib=/usr/local/bin/xml2bib
+isi2xml=isi2xml
+xml2bib=xml2bib
+isi2xml_flags="-u"
+xml2bib_flags="-sd -b"
+#-------------------------------------------------------------------------------
+
+# Immediately check that the needed programs are there:
+"${isi2xml}" --version > /dev/null 2>&1
+
+if [ "$?" != "0" ]
+then
+    echo "Program ris2xml (suite bibutils) is required."
+    echo "Set it in your path, and/or modify $0 accordingly."
+    echo "Ending processing."
+    exit 1
+fi
+
+"${xml2bib}" --version > /dev/null 2>&1
+
+if [ "$?" != "0" ]
+then
+    echo "Program xml2bib (suite bibutils) is required."
+    echo "Set it in your path, and/or modify $0 accordingly."
+    echo "Ending processing."
+    exit 1
+fi
+
+# Make sure we trap errors (we put that after the tests above because
+# we need the tests to fail, in case, without exiting immediately).
+set -e
+
+# Getting filenames from command line
+echo "cb2Bib Tools: Script to convert ISI format to BibTeX"
+echo ""
+echo "It uses external package bibutils from"
+echo "http://bibutils.refbase.org/"
+echo ""
+if test "$#" != 2; then
+    cat <<EOF
+Usage: $0 input_isi output_bib
+EOF
+    exit 2
+fi
+
+# Create temporary directory
+# Note that we use the mktemp utility that ensures that
+# we do not overwrite any preexisting directory
+tmp_dir=$(mktemp -d --tmpdir c2b_tools_tmp.XXXXXXXX)
+
+# Setting files
+isi="$1"
+bib="$2"
+work_dir="$PWD"
+
+# Preparing temporary files
+cp "$isi" "${tmp_dir}"/c2b_tmp.isi
+cp "$isi" "${tmp_dir}"/c2b_tmp.bib
+
+# bibutils procedure
+cd "${tmp_dir}"
+"${isi2xml}" $isi2xml_flags c2b_tmp.isi > c2b_tmp.xml
+"${xml2bib}" $xml2bib_flags c2b_tmp.xml | sed 's%^ISSUE=%NUMBER=%g' > c2b_tmp.bib
+
+# Clean up
+cd "${work_dir}"
+cp "${tmp_dir}"/c2b_tmp.bib "$bib"
+rm -rf "${tmp_dir}"
+echo ""
+echo "$0 ended."

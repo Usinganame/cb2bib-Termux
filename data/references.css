@@ -1,0 +1,70 @@
+/*   cb2Bib References CSS   */
+
+/*   general   */
+
+body {
+font-size: 100%;
+font-family: sans-serif;
+background-color: #E7E7E7;
+color: black;
+padding: 0;
+margin: 0;
+}
+
+a {
+color: #010141;
+text-decoration: none;
+}
+
+a:link {
+color: #010141;
+text-decoration: underline;
+}
+
+h1
+{
+background-color: #010141;
+color: #DBDBDB;
+font-size: 20px;
+font-variant: small-caps;
+font-family: sans-serif;
+}
+
+
+/*   references   */
+
+#references{
+background-color: #DBDBDB;
+}
+
+#references blockquote{
+font-size: small;
+}
+
+#references span{
+color: #0000FF;
+}
+
+#excerpt{
+font-style: italic;
+}
+
+/*   header   */
+
+#header {
+vertical-align: middle;
+}
+
+/*   footer   */
+
+#footer {
+color: black;
+font-family: arial, sans-serif;
+font-size: 9pt;
+}
+
+#footer td{
+padding: 10px;
+padding-left: 5px;
+padding-right: 5px;
+}

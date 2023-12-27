@@ -1,0 +1,20 @@
+#!/bin/sh
+#-------------------------------------------------------------------------------
+# c2bciter -- Wrapper for calling cb2Bib Citer
+# cb2Bib Tools
+# Copyright (C) 2004-2021 by Pere Constans
+# constans@molspaces.com
+#
+# Copyright (C) 2009 by Filippo Rusconi
+# rusconi@mnhn.fr
+#
+# June 2009:
+# - Make use of the "$@" argument instead of problematic "$1".
+#
+# See the LICENSE file that comes with this distribution
+#-------------------------------------------------------------------------------
+# Usage: c2bciter [dirname1 [dirname2 ... ]]
+#        c2bciter [filename1.bib [filename2.bib ... ]]
+#-------------------------------------------------------------------------------
+
+cb2bib --citer "$@"

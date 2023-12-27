@@ -1,0 +1,12 @@
+# cb2Bib 0.0.1  Pattern:
+PDF Import Example
+article
+journal volume pages year title author abstract
+^(Ars Magna), (\d+), ([\d\-–\s]+), (\d\d\d\d)<NewLine1>(.+)<NewLine3>(.+)<NewLine5>.+SUMMARY(.+)<NewLine13>.+$
+
+# cb2Bib 0.0.1  Pattern:
+Example with Multiple Author Sets
+article
+journal volume pages year title author author abstract
+^(Journal Name), (\d+), ([\d|\-|\s]+), (\d\d\d\d) <NewLine1><NewLine2> <NewLine3>(.+)<NewLine4><NewLine5> <NewLine6>(.+)<NewLine7>.+<NewLine10>(.+)<NewLine11>.+Abstract:(.+)$
+

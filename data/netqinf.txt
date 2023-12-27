@@ -1,0 +1,432 @@
+############################################################
+# CB2BIB/EDITOR BOOKMARKS AND NETWORK QUERY INFORMATION FILE
+############################################################
+
+###########
+# BOOKMARKS
+###########
+# Syntax:
+# bookmark=Description|Target URL
+# Notes:
+# - cb2Bib tags, e. g. BibTeX fields enclosed as <<...>>, can be included in the URL. These tags will be
+#   substituted by the current values.
+# - The non BibTeX tag <<selection>> is the placeholder for the current text selection.
+# - Some special characters, such as |, might need percent encoding to properly work.
+# Bookmark Examples:
+bookmark=PubMed Citation Finder|https://www.ncbi.nlm.nih.gov/pubmed/citmatch
+bookmark=DBLP Bibliography|http://dblp.org/search/
+bookmark=arXiv.org e-Print archive|https://arxiv.org/
+bookmark=CiteSeerX|http://citeseerx.ist.psu.edu/
+bookmark=Directory of Open Access Journals|https://doaj.org/search
+bookmark=PLoS - The Public Library of Science|https://www.plos.org/
+bookmark=OAIster|https://www.oclc.org/en/oaister.html
+bookmark=Search ACS Publications|https://pubs.acs.org/search/advanced
+bookmark=Google Scholar|https://scholar.google.com/
+bookmark= |
+bookmark=Search arXiv for selected text|https://search.arxiv.org:8081/?query=<<selection>>
+bookmark=Search Citebase for Authors|http://www.citebase.org/search?type=metadata&maxrows=10&author=<<author>>&submitted=Search
+bookmark=Search CiteSeerX for Title|http://citeseerx.ist.psu.edu/search?q=title%3A<<title>>&sort=cite
+bookmark=Search PubMed for Title|https://www.ncbi.nlm.nih.gov/pubmed?term=<<title>>
+bookmark=Search PubMed for DOI|https://www.ncbi.nlm.nih.gov/pubmed?term=<<doi>>
+bookmark=Search Google for literal Title|https://www.google.com/search?ie=UTF-8&q=%22<<title>>%22
+bookmark=Search Scholar for literal Title|https://scholar.google.com/scholar?ie=UTF-8&q=%22<<title>>%22
+bookmark=Search Crossref for Journal + Volume + Page|https://www.crossref.org/guestquery/?search_type=journal&auth=&issn=&title=<<journal>>&art_title=&volume=<<volume>>&page=<<pages>>&isbn=&comp_num=&series_title=&multi_hit=on&view_records=Search
+bookmark=Search ISBN Database|https://isbndb.com/search-all.html?kw=<<isbn>>
+bookmark=Open DOI Document|https://doi.org/<<doi>>
+
+##################
+# EDITOR BOOKMARKS
+##################
+# Syntax:
+# editorbookmark=Description|Target file name|Shortcut|Icon file name
+# Bookmark Example:
+editorbookmark=Bookmarks Description|https://www.molspaces.com/cb2bib/doc/bibeditor/#bookmarks||
+
+###########################
+# NETWORK QUERY INFORMATION
+###########################
+# Description:
+# The cb2Bib tags
+#            <<journal>>,
+#            <<volume>>,
+#            <<pages>>,
+#            <<eprint>>,
+#            <<doi>>,
+# and/or
+#            <<excerpt>>
+# are substituted in the Submission Form (see below) by the actual values of the
+# reference.
+# 1) In a first step, the 'query' URL containing above substituted tags is sent to the
+# database server or publisher's website.
+# 2) Once the URL is retrieved, in a second step, cb2Bib captures a database identifier
+# for the desired reference. This step is a regular expression caption.
+#
+# Steps 1) and 2) are therefore a mapping from the given reference fields to the server
+# database identifier.
+#
+# 3) In the next step the server identifier is used to retrieve the complete
+# bibliographic reference,
+# 4) and possibly the link or URL for the target document, usually a PDF file.
+#
+#
+# In summary, queries are performed in these 4 steps:
+# 1)  Post Query( journal-fullname, volume, first page; or doi; or excerpt ) (HTML post +
+#     cb2Bib tags)
+# 2)  Capture referenceurl and pdfurl from query (RegExp)
+# 3)  Retrieve referenceurl = referenceurl_prefix + capture_from_query + referenceurl_sufix
+# 4)  Schedule for retrieving pdfurl = pdfurl_prefix + capture_from_query + pdfurl_sufix
+#
+# NOTE: If pdfurl_prefix contains a cb2Bib tag, for example
+#       pdfurl_prefix=http://example.com/<<doi>>
+#       then pdfurl will be formed by substituting <<doi>> instead of capture_from_query
+#
+# NOTE: For the single query cases with no htm2txt_query and referenceurl_prefix
+#       capture_from_query can be used for checking the suitability of the query
+#       result
+#
+#--------------------------------------------------------------------------------------------
+# Submission Form
+# All field/lines required, ordered as here, no comment or blank lines in between
+#--------------------------------------------------------------------------------------------
+# QUERY INFO FOR
+#journal=cb2Bib Long Journal Name|journal code (or left blank if none needed, see ACS example)
+#query=  (use '<<post>>http://www...' for http post method, instead of get method)
+#capture_from_query=
+#referenceurl_prefix=
+#referenceurl_sufix=
+#pdfurl_prefix=
+#pdfurl_sufix=
+#action=
+#
+#--------------------------------------------------------------------------------------------
+# ACTION Description:
+#--------------------------------------------------------------------------------------------
+#
+#  blank = cb2Bib imports query output to clipboard panel and deletes previous panel contents
+#  merge_all_metadata = cb2Bib appends query and referenceurl output to clipboard panel
+#  merge_referenceurl_metadata = cb2Bib appends referenceurl output to clipboard panel
+#  browse_query = cb2Bib opens the url in query
+#  browse_referenceurl = cb2Bib opens referenceurl_prefix + capture_from_query + referenceurl_sufix
+#
+#  Perform HTML to text conversion before importing to clipboard panel:
+#  htm2txt_query = cb2Bib imports the url in query
+#  htm2txt_referenceurl = cb2Bib imports referenceurl_prefix + capture_from_query + referenceurl_sufix
+#
+#--------------------------------------------------------------------------------------------
+# Examples below explain and clarify the query syntax
+#--------------------------------------------------------------------------------------------
+
+# Check arXiv for <<eprint>>, if DOI is returned check CR, merge_all_metadata for a complete
+# bibliographic record, and schedule PDF download
+journal=
+query=https://export.arxiv.org/api/query?id_list=<<eprint>>
+capture_from_query=>(10\.\d[^<]+)<
+referenceurl_prefix=https://api.crossref.org/works/
+referenceurl_sufix=
+pdfurl_prefix=https://arxiv.org/pdf/<<eprint>>
+pdfurl_sufix=
+action=merge_all_metadata
+
+# Check arXiv for <<eprint>>, use capture_from_query to ensure received data is correct,
+# schedule PDF download
+journal=
+query=https://export.arxiv.org/api/query?id_list=<<eprint>>
+capture_from_query=arxiv\.org/abs/(<<eprint>>)
+referenceurl_prefix=
+referenceurl_sufix=
+pdfurl_prefix=https://arxiv.org/pdf/<<eprint>>
+pdfurl_sufix=
+action=merge_all_metadata
+
+# Check PubMed for <<doi>> and schedule PDF download if available
+journal=
+query=https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=<<doi>>&field=doi&retmode=xml
+capture_from_query=<Id>(\d+)</Id>
+referenceurl_prefix=https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&report=xml&format=text&id=
+referenceurl_sufix=
+pdfurl_prefix=https://www.ncbi.nlm.nih.gov/pmc/articles/pmid/
+pdfurl_sufix=/pdf/
+action=
+
+# Check CR for <<doi>>, use merge_all_metadata to keep clipboard contents for a manual
+# extraction of the abstract
+journal=
+query=https://api.crossref.org/works/<<doi>>
+capture_from_query=("status":.*"ok")
+referenceurl_prefix=
+referenceurl_sufix=
+pdfurl_prefix=
+pdfurl_sufix=
+action=merge_all_metadata
+
+# Check PubMed for <<journal>>|<<volume>>|<<pages>>, use journal to set specific codes for
+# specific journals
+journal=Proteins: Structure, Function, and Bioinformatics|Proteins
+journal=Proteins: Structure, Function, and Genetics|Proteins
+query=https://eutils.ncbi.nlm.nih.gov/entrez/eutils/ecitmatch.cgi?db=pubmed&retmode=xml&bdata=<<journal>>||<<volume>>|<<pages>>||c2bquery|
+capture_from_query=c2bquery\|(\d+)\b
+referenceurl_prefix=https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&report=xml&format=text&id=
+referenceurl_sufix=
+pdfurl_prefix=https://www.ncbi.nlm.nih.gov/pmc/articles/pmid/
+pdfurl_sufix=/pdf/
+action=
+
+# Check PubMed for <<journal>>|<<volume>>|<<pages>> for any journal
+journal=
+query=https://eutils.ncbi.nlm.nih.gov/entrez/eutils/ecitmatch.cgi?db=pubmed&retmode=xml&bdata=<<journal>>||<<volume>>|<<pages>>||c2bquery|
+capture_from_query=c2bquery\|(\d+)\b
+referenceurl_prefix=https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&report=xml&format=text&id=
+referenceurl_sufix=
+pdfurl_prefix=https://www.ncbi.nlm.nih.gov/pmc/articles/pmid/
+pdfurl_sufix=/pdf/
+action=
+
+# Check CR for <<journal>>|<<volume>>|<<pages>> 
+journal=
+query=https://www.crossref.org/guestquery?search_type=journal&auth=&issn=&title=<<journal>>&art_title=&volume=<<volume>>&issue=&page=<<pages>>%20&year=&isbn=&comp_num=&series_title=&multi_hit=on&view_records=Search&queryType=bibsearch
+capture_from_query=>\s*http://dx\.doi\.org/(.+)</a>
+referenceurl_prefix=https://api.crossref.org/works/
+referenceurl_sufix=
+pdfurl_prefix=
+pdfurl_sufix=
+action=merge_referenceurl_metadata
+
+# At this point all previous searches had been unsuccessful, then use the clipboard contents
+# summary, <<excerpt>> tag, for browsing a generic internet search
+journal=
+query=https://scholar.google.com/scholar?hl=en&lr=&ie=UTF-8&q=<<excerpt>>&btnG=Search
+capture_from_query=
+referenceurl_prefix=
+referenceurl_sufix=
+pdfurl_prefix=
+pdfurl_sufix=
+action=browse_query
+
+
+%c2b_stop_parsing
+
+#--------------------------------------------------------------------------------------------
+# Examples below are deprecated, they are kept here to further clarify the query syntax
+#--------------------------------------------------------------------------------------------
+
+# QUERY INFO FOR IJQC
+# No BibTeX reference available. Instead, set 'action=browse_referenceurl'.
+# Reference and PDF file can later be extracted from browser, by selecting it.
+journal=International Journal of Quantum Chemistry|
+query=http://www3.interscience.wiley.com/search/allsearch?mode=citation&contextLink=%3Ca+href%3D%22%2Findex.html%22+target%3D%22_top%22%3EHome%3C%2Fa%3E+%2F+%3Ca+href%3D%22%2Fcgi-bin%2Fbrowsebysubject%3Fcode%3DCHEM%22+target%3D%22_top%22%3EChemistry%3C%2Fa%3E+%2F+%3Ca+href%3D%22%2Fcgi-bin%2Fbrowsebycategory%3Fcode%3DCH65%22+target%3D%22_top%22%3EComputational+Chemistry+and+Molecular+Modeling%3C%2Fa%3E&issn=1097-461X&volume=<<volume>>&issue=&pages=<<pages>>
+capture_from_query=/journal/(\d+)/abstract
+referenceurl_prefix=http://www3.interscience.wiley.com/journal/
+referenceurl_sufix=/abstract
+pdfurl_prefix=
+pdfurl_sufix=
+action=browse_referenceurl
+
+# QUERY INFO FOR PNAS (Volume and Page)
+# Extracts BibTeX reference and article PDF file
+journal=Proceedings of the National Academy of Sciences of the United States of America|
+query=http://www.pnas.org/search?submit=yes&submit=Submit&pubdate_year=&volume=<<volume>>&firstpage=<<pages>>&doi=&author1=&author2=&title=&andorexacttitle=and&titleabstract=&andorexacttitleabs=and&fulltext=&andorexactfulltext=and&fmonth=Jan&fyear=1915&tmonth=Jul&tyear=2021&tocsectionid=all&format=standard&hits=10&sortspec=relevance&submit=yes
+capture_from_query=/content/(.+)\.(extract|abstract|full)
+referenceurl_prefix=http://www.pnas.org/citmgr?type=bibtex&gca=pnas;
+referenceurl_sufix=
+pdfurl_prefix=http://www.pnas.org/content/
+pdfurl_sufix=.full.pdf
+action=
+
+# QUERY INFO FOR PNAS (DOI)
+# Extracts BibTeX reference and article PDF file
+journal=Proceedings of the National Academy of Sciences of the United States of America|
+query=http://www.pnas.org/search?submit=yes&submit=Submit&doi=<<doi>>
+capture_from_query=/content/(.+)\.(extract|abstract|full)
+referenceurl_prefix=http://www.pnas.org/citmgr?type=bibtex&gca=pnas;
+referenceurl_sufix=
+pdfurl_prefix=http://www.pnas.org/content/
+pdfurl_sufix=.full.pdf
+action=
+
+# QUERY INFO FOR BIOMETRIKA
+# Extracts BibTeX reference
+journal=Biometrika|
+query=http://biomet.oxfordjournals.org/cgi/search?sendit=Search&pubdate_year=&volume=<<volume>>&firstpage=<<pages>>&DOI=&author1=&author2=&title=&andorexacttitle=and&titleabstract=&andorexacttitleabs=and&fulltext=&andorexactfulltext=and&fmonth=Jan&fyear=&tocsectionid=all&RESULTFORMAT=1&hits=10&hitsbrief=25&sortspec=relevance&sortspecbrief=relevance
+capture_from_query=http://biomet\.oxfordjournals\.org/cgi/content/abstract/([/\d\w]+)\?
+referenceurl_prefix=http://biomet.oxfordjournals.org/cgi/citmgr?type=bibtex&gca=biomet;
+referenceurl_sufix=
+pdfurl_prefix=
+pdfurl_sufix=
+action=
+
+# QUERY INFO FOR NAR
+# Extracts BibTeX reference and article PDF file
+journal=Nucleic Acids Research|
+query=http://nar.oxfordjournals.org/cgi/search?sendit=Search&pubdate_year=&volume=<<volume>>&firstpage=<<pages>>&DOI=&author1=&author2=&title=&andorexacttitle=and&titleabstract=&andorexacttitleabs=and&fulltext=&andorexactfulltext=and&fmonth=Jan&fyear=1990&tocsectionid=all&RESULTFORMAT=1&hits=10&hitsbrief=25&sortspec=relevance&sortspecbrief=relevance
+capture_from_query=http://nar\.oxfordjournals\.org/cgi/content/abstract/([/\d\w]+)\?
+referenceurl_prefix=http://nar.oxfordjournals.org/cgi/citmgr?type=bibtex&gca=nar;
+referenceurl_sufix=
+pdfurl_prefix=http://nar.oxfordjournals.org/cgi/reprint/
+pdfurl_sufix=.pdf
+action=
+
+# QUERY INFO FOR B
+# Extracts BibTeX reference and article PDF file
+journal=Bioinformatics|
+query=http://bioinformatics.oxfordjournals.org/cgi/search?sendit=Search&pubdate_year=&volume=<<volume>>&firstpage=<<pages>>&DOI=&author1=&author2=&title=&andorexacttitle=and&titleabstract=&andorexacttitleabs=and&fulltext=&andorexactfulltext=and&fmonth=Jan&fyear=1990&tocsectionid=all&RESULTFORMAT=1&hits=10&hitsbrief=25&sortspec=relevance&sortspecbrief=relevance
+capture_from_query=http://bioinformatics\.oxfordjournals\.org/cgi/reprint/([/\d\w]+)\?
+referenceurl_prefix=http://bioinformatics.oxfordjournals.org/cgi/citmgr?type=bibtex&gca=bioinfo;
+referenceurl_sufix=
+pdfurl_prefix=http://bioinformatics.oxfordjournals.org/cgi/reprint/
+pdfurl_sufix=.pdf
+action=
+
+# QUERY INFO FOR PubMed
+# Extracts Medline reference
+# Blank journal meaning 'any journal name'
+journal=
+query=http://www.ncbi.nlm.nih.gov/pubmed?term=<<doi>>
+capture_from_query=\bPMID:\D{1,10}(\d+)\D
+referenceurl_prefix=http://www.ncbi.nlm.nih.gov/pubmed/
+referenceurl_sufix=?report=xml&format=text
+pdfurl_prefix=http://www.ncbi.nlm.nih.gov/pmc/articles/pmid/
+pdfurl_sufix=/pdf/
+action=htm2txt_referenceurl
+
+# QUERY INFO FOR PubMed, SPECIAL CASES (PubMed doesn't know full journal name)
+# Extracts Medline reference
+journal=Proteins: Structure, Function, and Bioinformatics|Proteins
+journal=Proteins: Structure, Function, and Genetics|Proteins
+query=http://www.ncbi.nlm.nih.gov/pubmed?term=<<journal>>[Jour]+AND+<<volume>>[volume]+AND+<<pages>>[page]
+capture_from_query=\bPMID:\D{1,10}(\d+)\D
+referenceurl_prefix=http://www.ncbi.nlm.nih.gov/pubmed/
+referenceurl_sufix=?report=xml&format=text
+pdfurl_prefix=http://www.ncbi.nlm.nih.gov/pmc/articles/pmid/
+pdfurl_sufix=/pdf/
+action=htm2txt_referenceurl
+
+# QUERY INFO FOR PubMed
+# Extracts Medline reference
+# Blank journal meaning 'any journal name'
+journal=
+query=http://www.ncbi.nlm.nih.gov/pubmed?term=<<journal>>[Jour]+AND+<<volume>>[volume]+AND+<<pages>>[page]
+capture_from_query=\bPMID:\D{1,10}(\d+)\D
+referenceurl_prefix=http://www.ncbi.nlm.nih.gov/pubmed/
+referenceurl_sufix=?report=xml&format=text
+pdfurl_prefix=http://www.ncbi.nlm.nih.gov/pmc/articles/pmid/
+pdfurl_sufix=/pdf/
+action=htm2txt_referenceurl
+
+# QUERY INFO FOR ACS
+# Point to the abstract page.
+journal=Accounts of Chemical Research|achre4
+journal=ACS Applied Materials and Interfaces|aamick
+journal=Analytical Chemistry|ancham
+journal=Analytical Chemistry A-Pages|anchama
+journal=Biochemistry|bichaw
+journal=Bioconjugate Chemistry|bcches
+journal=Biomacromolecules|bomaf6
+journal=Biotechnology Progress|bipret
+journal=Chemical Research in Toxicology|crtoec
+journal=Chemical Reviews|chreay
+journal=Chemistry of Materials|cmatex
+journal=Crystal Growth and Design|cgdefu
+journal=Energy and Fuels|enfuem
+journal=Environmental Science and Technology A-Pages|esthaga
+journal=Environmental Science and Technology|esthag
+journal=Industrial and Engineering Chemistry|iechad
+journal=Industrial and Engineering Chemistry Research Fundamentals|iecfa7
+journal=Industrial and Engineering Chemistry Research|iecred
+journal=Inorganic Chemistry|inocaj
+journal=Journal of Agricultural and Food Chemistry|jafcau
+journal=Journal of Chemical and Engineering Data|jceaax
+journal=Journal of Chemical Information and Computer Sciences|jcisd8
+journal=Journal of Chemical Information and Modeling|jcisd8
+journal=Journal of Chemical Theory and Computation|jctcce
+journal=Journal of Combinatorial Chemistry|jcchff
+journal=Journal of Medicinal Chemistry|jmcmar
+journal=Journal of Natural Products|jnprdf
+journal=Journal of Organic Chemistry|joceah
+journal=The Journal of Physical Chemistry A|jpcafh
+journal=The Journal of Physical Chemistry B|jpcbfk
+journal=The Journal of Physical Chemistry C|jpccfk
+journal=Journal of Physical Chemistry|jpchax
+journal=Journal of Proteome Research|jprobs
+journal=Journal of the American Chemical Society|jacsat
+journal=Langmuir|langd5
+journal=Macromolecules|mamobx
+journal=Molecular Pharmaceutics|mpohbp
+journal=Nano Letters|nalefd
+journal=Organic Letters|orlef7
+journal=Organic Process Research and Development|oprdfk
+journal=Organometallics|orgnd7
+query=http://pubs.acs.org/action/quickLink?quickLinkJournal=<<journal>>&quickLinkVolume=<<volume>>&quickLinkPage=<<pages>>&cookieSet=1
+capture_from_query=
+referenceurl_prefix=
+referenceurl_sufix=
+pdfurl_prefix=
+pdfurl_sufix=
+action=browse_query
+
+# QUERY INFO FOR JCP, JAP and JMP
+# Extracts BibTeX reference
+journal=The Journal of Chemical Physics|JCP
+journal=Journal of Chemical Physics|JCP
+journal=Journal of Applied Physics|JAP
+journal=Journal of Mathematical Physics|JMP
+query=http://link.aip.org/link/?<<journal>>/<<volume>>/<<pages>>
+capture_from_query=filetype=pdf&amp;id=([\w\d]+)&amp;
+referenceurl_prefix=http://scitation.aip.org/getabs/servlet/GetCitation?fn=view_bibtex2&source=scitation&PrefType=ARTICLE&PrefAction=Add+Selected&SelectCheck=
+referenceurl_sufix=&downloadcitation=+Go+
+pdfurl_prefix=http://scitation.aip.org/getpdf/servlet/GetPDFServlet?filetype=pdf&id=
+pdfurl_sufix=&idtype=cvips
+action=
+
+# QUERY INFO FOR DOI
+# If DOI is known, and so far the reference is not found, at least browse reference
+journal=
+query=http://dx.doi.org/<<doi>>
+capture_from_query=
+referenceurl_prefix=
+referenceurl_sufix=
+pdfurl_prefix=
+pdfurl_sufix=
+action=browse_query
+
+# QUERY INFO FOR CR
+journal=
+query=http://www.crossref.org/guestquery?search_type=journal&auth=&issn=&title=<<journal>>&art_title=&volume=<<volume>>&issue=&page=<<pages>>%20&year=&isbn=&comp_num=&series_title=&multi_hit=on&view_records=Search&queryType=bibsearch
+capture_from_query=>\s*http://dx\.doi\.org/(.+)</a>
+referenceurl_prefix=http://dx.doi.org/
+referenceurl_sufix=
+pdfurl_prefix=
+pdfurl_sufix=
+action=browse_referenceurl
+
+# QUERY INFO FOR PubMed
+# Extracts Medline reference
+# Uses <<title>> tag
+journal=
+query=http://www.ncbi.nlm.nih.gov/pubmed?term=<<title>>
+capture_from_query=\bPMID:\D{1,10}(\d+)\D
+referenceurl_prefix=http://www.ncbi.nlm.nih.gov/pubmed/
+referenceurl_sufix=?report=xml&format=text
+pdfurl_prefix=http://www.ncbi.nlm.nih.gov/pmc/articles/pmid/
+pdfurl_sufix=/pdf/
+action=htm2txt_referenceurl
+
+# QUERY INFO FOR Google Scholar
+journal=
+query=https://scholar.google.com/scholar?hl=en&lr=&ie=UTF-8&q=<<doi>>&btnG=Search
+capture_from_query=info:(\w+):scholar
+referenceurl_prefix=https://scholar.google.com/scholar.bib?hl=en&lr=&ie=UTF-8&q=info:
+referenceurl_sufix=:scholar.google.com/&output=citation&oe=ASCII&oi=citation
+pdfurl_prefix=
+pdfurl_sufix=
+action=
+
+# QUERY INFO FOR Google Scholar
+# Uses <<excerpt>> tag
+journal=
+query=https://scholar.google.com/scholar?hl=en&lr=&ie=UTF-8&q=<<excerpt>>&btnG=Search
+capture_from_query=info:(\w+):scholar
+referenceurl_prefix=https://scholar.google.com/scholar.bib?hl=en&lr=&ie=UTF-8&q=info:
+referenceurl_sufix=:scholar.google.com/&output=citation&oe=ASCII&oi=citation
+pdfurl_prefix=
+pdfurl_sufix=
+action=

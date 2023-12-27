@@ -1,0 +1,15 @@
+[Desktop Entry]
+Comment=Bibliographic Reference Extracting and Managing Tool
+Comment[ca]=Eina per extreure i gestionar referències bibliogràfiques
+Exec=cb2bib --bibedit %F
+GenericName=Bibliographic Reference Tool
+GenericName[ca]=Eina per a bibliografies
+Icon=cb2bib
+MimeType=text/x-bibtex;
+Name=cb2Bib
+Path=/data/data/com.termux/files/usr/bin
+StartupNotify=true
+Terminal=false
+Categories=Office;
+Type=Application
+Keywords=bibliography,citations,scientific articles;

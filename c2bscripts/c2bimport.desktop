@@ -1,0 +1,15 @@
+[Desktop Entry]
+Comment=Download reference to cb2Bib
+Comment[ca]=Importa referència al cb2Bib
+Exec=cb2bib --import %f
+GenericName=cb2Bib Import Reference
+GenericName[ca]=Importa referència al cb2Bib
+Icon=cb2bib
+MimeType=text/x-bibtex;application/x-download;application/bibtex;
+Name=c2bImport
+Path=/data/data/com.termux/files/usr/bin
+NoDisplay=false
+StartupNotify=false
+Terminal=false
+Categories=Office;
+Type=Application

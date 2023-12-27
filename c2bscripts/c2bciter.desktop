@@ -1,0 +1,15 @@
+[Desktop Entry]
+Comment=Bibliographic Reference Citation Tool
+Comment[ca]=Eina bibliogràfica per escriure citacions
+Exec=cb2bib --citer %F
+GenericName=Reference Citation Tool
+GenericName[ca]=Eina per citacions bibliogràfiques
+Icon=cb2bib
+MimeType=text/x-bibtex;
+Name=c2bCiter
+Path=/data/data/com.termux/files/usr/bin
+StartupNotify=false
+Terminal=false
+Categories=Office;
+Type=Application
+Keywords=bibliography,citations,scientific articles;

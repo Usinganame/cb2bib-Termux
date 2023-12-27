@@ -1,0 +1,95 @@
+#!/bin/sh
+#-------------------------------------------------------------------------------
+# med2bib  --  Script to convert PUBMED format to BibTeX
+# cb2Bib Tools
+#
+# Copyright (C) 2009 by Filippo Rusconi
+# rusconi@mnhn.fr
+#
+# Based on previous work by
+# Pere Constans
+# constans@molspaces.com
+#
+# See LICENSE file that comes with this distribution
+#
+# Usage: med2bib input_med output_bib
+#-------------------------------------------------------------------------------
+# Using med2xml and xml2bib utilities from:
+# http://bibutils.refbase.org/
+#-------------------------------------------------------------------------------
+
+#-------------------------------------------------------------------------------
+# Init variables
+#-------------------------------------------------------------------------------
+# Modify accordingly
+#med2xml=/data/data/com.termux/files/usr/local/bin/med2xml
+#xml2bib=/data/data/com.termux/files/usr/local/bin/xml2bib
+med2xml=med2xml
+xml2bib=xml2bib
+med2xml_flags="-u"
+xml2bib_flags="-sd -b"
+#-------------------------------------------------------------------------------
+
+# Immediately check that the needed programs are there:
+"${med2xml}" --version > /dev/null 2>&1
+
+if [ "$?" != "0" ]
+then
+    echo "Program med2xml (suite bibutils) is required."
+    echo "Set it in your path, and/or modify $0 accordingly."
+    echo "Ending processing."
+    exit 1
+fi
+
+"${xml2bib}" --version > /dev/null 2>&1
+
+if [ "$?" != "0" ]
+then
+    echo "Program xml2bib (suite bibutils) is required."
+    echo "Set it in your path, and/or modify $0 accordingly."
+    echo "Ending processing."
+    exit 1
+fi
+
+# Make sure we trap errors (we put that after the tests above because
+# we need the tests to fail, in case, without exiting immediately).
+set -e
+
+# Getting filenames from command line
+echo "cb2Bib Tools: Script to convert PUBMED-XML format to BibTeX"
+echo ""
+echo "It uses external package bibutils from"
+echo "http://bibutils.refbase.org/"
+echo ""
+if test "$#" != 2; then
+    cat <<EOF
+Usage: $0 input_med output_bib
+EOF
+    exit 2
+fi
+
+# Create temporary directory
+# Note that we use the mktemp utility that ensures that
+# we do not overwrite any preexisting directory
+tmp_dir=$(mktemp -d --tmpdir c2b_tools_tmp.XXXXXXXX)
+
+# Setting files
+med="$1"
+bib="$2"
+work_dir="$PWD"
+
+# Preparing temporary files
+cp "$med" "${tmp_dir}"/c2b_tmp.med
+cp "$med" "${tmp_dir}"/c2b_tmp.bib
+
+# bibutils procedure
+cd "${tmp_dir}"
+"${med2xml}" $med2xml_flags c2b_tmp.med > c2b_tmp.xml
+"${xml2bib}" $xml2bib_flags c2b_tmp.xml | sed 's%^ISSUE=%NUMBER=%g' > c2b_tmp.bib
+
+# Clean up
+cd "${work_dir}"
+cp "${tmp_dir}"/c2b_tmp.bib "$bib"
+rm -rf "${tmp_dir}"
+echo ""
+echo "$0 ended."

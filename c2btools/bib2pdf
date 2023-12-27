@@ -1,0 +1,136 @@
+#!/bin/sh
+#-------------------------------------------------------------------------------
+# bib2pdf  --  Script to convert BibTeX files to PDF
+# cb2Bib Tools
+#
+# Copyright (C) 2005-2021 by Pere Constans
+# constans@molspaces.com
+#
+# Improvements and modifications:
+# Copyright (C) 2009 by Filippo Rusconi
+# rusconi@mnhn.fr
+#
+# May/June 2009:
+# - Added checks to ensure that the used commands are available on
+#   system.
+# - Make use of mktemp to create a temp directory.
+#
+# See LICENSE file that comes with this distribution
+#
+# Usage: bib2pdf input_bib output_pdf
+#-------------------------------------------------------------------------------
+
+#-------------------------------------------------------------------------------
+# Init variables
+#-------------------------------------------------------------------------------
+# Modify accordingly, by choosing either pdflatex or latex+dvipdfm
+#latexCmd=pdflatex
+latexCmd=latex ; dvi2pdfCmd=dvipdfm
+
+bibtexCmd=bibtex
+#-------------------------------------------------------------------------------
+
+# Immediately check that the needed programs are there:
+"${latexCmd}" --version > /dev/null 2>&1
+
+if [ "$?" != "0" ]
+then
+    echo "Program ${latexCmd} (LaTeX software) is required."
+    echo "Ending processing."
+    exit 1
+fi
+
+"${bibtexCmd}" --version > /dev/null 2>&1
+
+if [ "$?" != "0" ]
+then
+    echo "Program ${bibtexCmd} (BibTeX software) is required."
+    echo "Ending processing."
+    exit 1
+fi
+
+# Special case with dvi2pdf:
+
+if [ "x${dvi2pdfCmd}" != "x" ]
+then
+    "${dvi2pdfCmd}" --version | head -n2 | grep dvipdfm > /dev/null 2>&1
+    if [ "$?" != "0" ]
+    then
+	echo "Program ${dvi2pdfCmd} (LaTeX software) is required."
+	echo "Ending processing."
+	exit 1
+    fi	
+fi
+
+
+# Make sure we trap errors (we put that after the tests above because
+# we need the tests to fail, in case, without exiting immediately).
+set -e
+
+# Getting filenames from command line
+echo "cb2Bib Tools: Script to convert BibTeX to PDF"
+if test "$#" != 2; then
+  cat <<EOF
+Usage: $0 input_bib output_pdf
+EOF
+  exit 2
+fi
+
+
+# Init some other variables (Modify accordingly) and create temporary
+# directory.
+latex_flags="-interaction=nonstopmode"
+# Note that we use the mktemp utility that ensures that
+# we do not overwrite any preexisting directory.
+tmp_dir=$(mktemp -d --tmpdir c2b_tools_tmp.XXXXXXXX)
+
+
+# Setting files
+bib="$1"
+pdf="$2"
+work_dir="$PWD"
+
+cat > "${tmp_dir}"/c2b_tmp.tex <<EOF
+\documentclass[a4paper,10pt]{article}
+%\documentclass[letterpaper,10pt]{article}
+\pagenumbering{roman}
+\bibliographystyle{unsrt}
+
+\oddsidemargin 0.0in 
+\evensidemargin 1.0in 
+\textwidth 6.0in 
+\headheight 0.0in 
+\topmargin 0.in 
+\textheight 9.0in 
+
+\begin{document}
+
+\nocite{*}
+\bibliography{c2b_tmp}
+
+\end{document}
+
+EOF
+cp "$bib" "${tmp_dir}"/c2b_tmp.bib
+
+# LaTeX procedure (Modify accordingly)
+cd "${tmp_dir}"
+# There might be bibliography errors, do not stop.
+set +e
+"${latexCmd}" $latex_flags c2b_tmp > /dev/null 2>&1
+"${bibtexCmd}" c2b_tmp
+"${latexCmd}" $latex_flags c2b_tmp > /dev/null 2>&1
+"${latexCmd}" $latex_flags c2b_tmp
+if [ "x${dvi2pdfCmd}" != "x" ]
+then
+    "${dvi2pdfCmd}" c2b_tmp > /dev/null 2>&1
+fi
+
+# Make sure we trap errors.
+set -e
+
+# Clean up
+cd "${work_dir}"
+cp "${tmp_dir}"/c2b_tmp.pdf "$pdf"
+rm -rf "${tmp_dir}"
+echo "$0 ended."

@@ -1,0 +1,27 @@
+#!/bin/sh
+#-------------------------------------------------------------------------------
+# c2bimport -- Script for calling cb2Bib in "Download Reference to cb2Bib" mode
+# cb2Bib Tools
+# Copyright (C) 2004-2021 by Pere Constans
+# constans@molspaces.com
+#
+# Copyright (C) 2009 by Filippo Rusconi
+# rusconi@mnhn.fr
+#
+# June 2009:
+# - Make use of quoted "$1" argument instead of $1.
+#
+# See the LICENSE file that comes with this distribution
+#-------------------------------------------------------------------------------
+# Usage: c2bimport tmp_imported_reference_file
+#-------------------------------------------------------------------------------
+
+if test "$#" != 1; then
+  cat <<EOF
+Script for calling cb2Bib in "Download Reference to cb2Bib" mode
+Usage: $0 tmp_imported_reference_file
+EOF
+  exit 2
+fi
+
+cb2bib --import "$1"
