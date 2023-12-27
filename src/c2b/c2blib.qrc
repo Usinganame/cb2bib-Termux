@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/htm" >
+        <file>htm/reference_item.html</file>
+        <file>htm/reference_list.html</file>
+        <file>htm/tex2html.css</file>
+        <file>htm/tex2html.html</file>
+        <file>htm/tex2html_index.html</file>
+    </qresource>
+    <qresource prefix="/txt" >
+        <file>txt/prefixes.txt</file>
+        <file>txt/suffixes.txt</file>
+        <file>txt/triads.txt</file>
+        <file>txt/word_prefix_lexicon.txt</file>
+    </qresource>
+</RCC>
